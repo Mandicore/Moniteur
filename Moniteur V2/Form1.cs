@@ -9,6 +9,7 @@ namespace Moniteur_V2
             AppName.Text = informations.AppName();
             CPUName.Text = informations.CpuName();
             Core.Text = informations.NbCores();
+            Thread.Text = informations.NbThreads();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -49,6 +50,12 @@ namespace Moniteur_V2
         private void label4_Click_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form2 Form2 = new Form2();
+            Form2.Show();
         }
     }
 }

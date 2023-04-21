@@ -36,6 +36,7 @@
             titleProc = new Label();
             Core = new Label();
             Thread = new Label();
+            button1 = new Button();
             SuspendLayout();
             // 
             // label1
@@ -107,7 +108,7 @@
             // 
             Core.AutoSize = true;
             Core.Font = new Font("Cambria", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            Core.Location = new Point(15, 220);
+            Core.Location = new Point(12, 220);
             Core.Name = "Core";
             Core.Size = new Size(59, 22);
             Core.TabIndex = 6;
@@ -118,11 +119,22 @@
             // 
             Thread.AutoSize = true;
             Thread.Font = new Font("Cambria", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            Thread.Location = new Point(203, 220);
+            Thread.Location = new Point(178, 220);
             Thread.Name = "Thread";
             Thread.Size = new Size(59, 22);
             Thread.TabIndex = 7;
             Thread.Text = "label5";
+            // 
+            // button1
+            // 
+            button1.Font = new Font("Calibri", 14.25F, FontStyle.Italic, GraphicsUnit.Point);
+            button1.Location = new Point(160, 378);
+            button1.Name = "button1";
+            button1.Size = new Size(136, 33);
+            button1.TabIndex = 8;
+            button1.Text = "Voir plus d'info";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // Form1
             // 
@@ -130,6 +142,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.WhiteSmoke;
             ClientSize = new Size(914, 561);
+            Controls.Add(button1);
             Controls.Add(Thread);
             Controls.Add(Core);
             Controls.Add(titleProc);
@@ -158,5 +171,6 @@
         private Label titleProc;
         private Label Core;
         private Label Thread;
+        private Button button1;
     }
 }

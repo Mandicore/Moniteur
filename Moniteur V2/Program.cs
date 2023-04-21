@@ -60,33 +60,41 @@ namespace Moniteur_V2
         }
         public static string NbCores() 
         {
-            string cores = null;
+            return GetCandT("NumberOfCores", "Cœur");
+        }
+        public static string NbThreads()
+        {
+            return GetCandT("NumberOfLogicalProcessors", "Thread");
+        }
+        public static String GetCandT(string Element, string name)
+        {
+            string reponse = null;
             ManagementObjectSearcher infos = GetInfosCpu();
             foreach (ManagementObject info in infos.Get())
             {
-                cores = info["NumberOfCores"].ToString();
+                reponse = info[Element].ToString();
             }
-            if (cores != null)
+            if (reponse != null)
             {
                 try
                 {
-                    int nbCore = int.Parse(cores);
-                    if (nbCore > 1)
+                    int reponseInt = int.Parse(reponse);
+                    if (reponseInt > 1)
                     {
-                        return "Cœurs : " + nbCore;
+                        return name + "s : " + reponseInt;
                     }
                     else
                     {
-                        return "Cœur : " + nbCore;
+                        return name + " : " + reponseInt;
                     }
                 }
-                catch 
+                catch
                 {
-                    return "Cœur(s) : " + cores;
+                    return name + "(s) : " + reponse;
                 }
 
             }
-            return "Cœur(s) : " + "ERREUR";
+            return name + "(s) : " + "ERREUR";
         }
     }
 }
