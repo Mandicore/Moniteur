@@ -34,6 +34,8 @@
             label3 = new Label();
             CPUName = new Label();
             titleProc = new Label();
+            Core = new Label();
+            Thread = new Label();
             SuspendLayout();
             // 
             // label1
@@ -101,12 +103,35 @@
             titleProc.Text = "Processeur :";
             titleProc.Click += titleProc_Click;
             // 
+            // Core
+            // 
+            Core.AutoSize = true;
+            Core.Font = new Font("Cambria", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            Core.Location = new Point(15, 220);
+            Core.Name = "Core";
+            Core.Size = new Size(59, 22);
+            Core.TabIndex = 6;
+            Core.Text = "label4";
+            Core.Click += label4_Click_1;
+            // 
+            // Thread
+            // 
+            Thread.AutoSize = true;
+            Thread.Font = new Font("Cambria", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            Thread.Location = new Point(203, 220);
+            Thread.Name = "Thread";
+            Thread.Size = new Size(59, 22);
+            Thread.TabIndex = 7;
+            Thread.Text = "label5";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.WhiteSmoke;
             ClientSize = new Size(914, 561);
+            Controls.Add(Thread);
+            Controls.Add(Core);
             Controls.Add(titleProc);
             Controls.Add(CPUName);
             Controls.Add(label3);
@@ -131,5 +156,7 @@
         private Label label3;
         private Label CPUName;
         private Label titleProc;
+        private Label Core;
+        private Label Thread;
     }
 }

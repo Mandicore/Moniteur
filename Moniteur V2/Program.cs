@@ -58,5 +58,35 @@ namespace Moniteur_V2
                 return "ERREUR : impossible de récupérer le nom du Cpu";
             }
         }
+        public static string NbCores() 
+        {
+            string cores = null;
+            ManagementObjectSearcher infos = GetInfosCpu();
+            foreach (ManagementObject info in infos.Get())
+            {
+                cores = info["NumberOfCores"].ToString();
+            }
+            if (cores != null)
+            {
+                try
+                {
+                    int nbCore = int.Parse(cores);
+                    if (nbCore > 1)
+                    {
+                        return "Cœurs : " + nbCore;
+                    }
+                    else
+                    {
+                        return "Cœur : " + nbCore;
+                    }
+                }
+                catch 
+                {
+                    return "Cœur(s) : " + cores;
+                }
+
+            }
+            return "Cœur(s) : " + "ERREUR";
+        }
     }
 }

@@ -8,6 +8,7 @@ namespace Moniteur_V2
             label1.Text = informations.ComputerName();
             AppName.Text = informations.AppName();
             CPUName.Text = informations.CpuName();
+            Core.Text = informations.NbCores();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -41,6 +42,11 @@ namespace Moniteur_V2
         }
 
         private void titleProc_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click_1(object sender, EventArgs e)
         {
 
         }
