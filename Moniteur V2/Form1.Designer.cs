@@ -37,6 +37,7 @@
             Core = new Label();
             Thread = new Label();
             button1 = new Button();
+            Fabriquant = new Label();
             SuspendLayout();
             // 
             // label1
@@ -85,7 +86,7 @@
             // CPUName
             // 
             CPUName.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            CPUName.Location = new Point(12, 177);
+            CPUName.Location = new Point(12, 224);
             CPUName.Name = "CPUName";
             CPUName.Size = new Size(429, 27);
             CPUName.TabIndex = 4;
@@ -108,7 +109,7 @@
             // 
             Core.AutoSize = true;
             Core.Font = new Font("Cambria", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            Core.Location = new Point(12, 220);
+            Core.Location = new Point(12, 268);
             Core.Name = "Core";
             Core.Size = new Size(59, 22);
             Core.TabIndex = 6;
@@ -119,7 +120,7 @@
             // 
             Thread.AutoSize = true;
             Thread.Font = new Font("Cambria", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            Thread.Location = new Point(178, 220);
+            Thread.Location = new Point(173, 268);
             Thread.Name = "Thread";
             Thread.Size = new Size(59, 22);
             Thread.TabIndex = 7;
@@ -136,12 +137,22 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
+            // Fabriquant
+            // 
+            Fabriquant.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            Fabriquant.Location = new Point(13, 193);
+            Fabriquant.Name = "Fabriquant";
+            Fabriquant.Size = new Size(219, 23);
+            Fabriquant.TabIndex = 9;
+            Fabriquant.Text = "label4";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.WhiteSmoke;
             ClientSize = new Size(914, 561);
+            Controls.Add(Fabriquant);
             Controls.Add(button1);
             Controls.Add(Thread);
             Controls.Add(Core);
@@ -172,5 +183,6 @@
         private Label Core;
         private Label Thread;
         private Button button1;
+        private Label Fabriquant;
     }
 }

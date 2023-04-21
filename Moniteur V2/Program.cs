@@ -43,20 +43,11 @@ namespace Moniteur_V2
         }
         public static string CpuName()
         {
-            string cpuName = null;
-            ManagementObjectSearcher infos = GetInfosCpu();
-            foreach (ManagementObject info in infos.Get())
-            {
-                cpuName = (string)info["Name"];
-            }
-            if (cpuName != null)
-            {
-                return cpuName;
-            }
-            else
-            {
-                return "ERREUR : impossible de récupérer le nom du Cpu";
-            }
+            return GetNames("Name", "Processeur");
+        }
+        public static string FacturName()
+        {
+            return GetNames("Manufacturer", "Fabriquant");
         }
         public static string NbCores() 
         {
@@ -95,6 +86,23 @@ namespace Moniteur_V2
 
             }
             return name + "(s) : " + "ERREUR";
+        }
+        public static string GetNames(string element, string name)
+        {
+            string cpuName = null;
+            ManagementObjectSearcher infos = GetInfosCpu();
+            foreach (ManagementObject info in infos.Get())
+            {
+                cpuName = (string)info[element];
+            }
+            if (cpuName != null)
+            {
+                return cpuName;
+            }
+            else
+            {
+                return "ERREUR : impossible de récupérer le nom du " + name;
+            }
         }
     }
 }

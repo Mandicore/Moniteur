@@ -10,6 +10,8 @@ namespace Moniteur_V2
             CPUName.Text = informations.CpuName();
             Core.Text = informations.NbCores();
             Thread.Text = informations.NbThreads();
+            //temp.Text = informations.GetTemp();
+            Fabriquant.Text = informations.FacturName();
         }
 
         private void Form1_Load(object sender, EventArgs e)
