@@ -6,6 +6,7 @@ namespace Moniteur_V2
         {
             InitializeComponent();
             label1.Text = informations.ComputerName();
+            AppName.Text = informations.AppName();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -14,6 +15,11 @@ namespace Moniteur_V2
         }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AppName_Click(object sender, EventArgs e)
         {
 
         }

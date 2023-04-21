@@ -29,5 +29,10 @@ namespace Moniteur_V2
             }
 
         }
+        public static string AppName() 
+        {
+            string appName = "Moniteur d'activités";
+            return appName;
+        }
     }
 }
