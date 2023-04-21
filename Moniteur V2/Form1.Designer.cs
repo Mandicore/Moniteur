@@ -30,6 +30,10 @@
         {
             label1 = new Label();
             AppName = new Label();
+            label2 = new Label();
+            label3 = new Label();
+            CPUName = new Label();
+            titleProc = new Label();
             SuspendLayout();
             // 
             // label1
@@ -58,12 +62,55 @@
             AppName.TextAlign = ContentAlignment.MiddleCenter;
             AppName.Click += AppName_Click;
             // 
+            // label2
+            // 
+            label2.BackColor = Color.DimGray;
+            label2.Location = new Point(12, 133);
+            label2.Name = "label2";
+            label2.Size = new Size(890, 10);
+            label2.TabIndex = 2;
+            label2.Click += label2_Click;
+            // 
+            // label3
+            // 
+            label3.BackColor = Color.DimGray;
+            label3.Location = new Point(447, 143);
+            label3.Name = "label3";
+            label3.Size = new Size(10, 268);
+            label3.TabIndex = 3;
+            // 
+            // CPUName
+            // 
+            CPUName.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            CPUName.Location = new Point(12, 177);
+            CPUName.Name = "CPUName";
+            CPUName.Size = new Size(429, 27);
+            CPUName.TabIndex = 4;
+            CPUName.Text = "CPU";
+            CPUName.TextAlign = ContentAlignment.MiddleLeft;
+            CPUName.Click += label4_Click;
+            // 
+            // titleProc
+            // 
+            titleProc.AutoSize = true;
+            titleProc.Font = new Font("Cambria", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            titleProc.Location = new Point(12, 152);
+            titleProc.Name = "titleProc";
+            titleProc.Size = new Size(118, 22);
+            titleProc.TabIndex = 5;
+            titleProc.Text = "Processeur :";
+            titleProc.Click += titleProc_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.WhiteSmoke;
             ClientSize = new Size(914, 561);
+            Controls.Add(titleProc);
+            Controls.Add(CPUName);
+            Controls.Add(label3);
+            Controls.Add(label2);
             Controls.Add(AppName);
             Controls.Add(label1);
             MaximumSize = new Size(930, 600);
@@ -73,11 +120,16 @@
             Text = "Moniteur V2";
             Load += Form1_Load;
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
         private Label label1;
         private Label AppName;
+        private Label label2;
+        private Label label3;
+        private Label CPUName;
+        private Label titleProc;
     }
 }

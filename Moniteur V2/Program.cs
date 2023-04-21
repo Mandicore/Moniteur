@@ -1,3 +1,5 @@
+using System.Management;
+
 namespace Moniteur_V2
 {
     internal static class Program
@@ -16,6 +18,11 @@ namespace Moniteur_V2
     }
     public class informations
     {
+        public static ManagementObjectSearcher GetInfosCpu()
+        {
+            ManagementObjectSearcher CpuInfos = new ManagementObjectSearcher("select * from Win32_Processor");
+            return CpuInfos;
+        }
         public static string ComputerName()
         {
             try
@@ -33,6 +40,23 @@ namespace Moniteur_V2
         {
             string appName = "Moniteur d'activités";
             return appName;
+        }
+        public static string CpuName()
+        {
+            string cpuName = null;
+            ManagementObjectSearcher infos = GetInfosCpu();
+            foreach (ManagementObject info in infos.Get())
+            {
+                cpuName = (string)info["Name"];
+            }
+            if (cpuName != null)
+            {
+                return cpuName;
+            }
+            else
+            {
+                return "ERREUR : impossible de récupérer le nom du Cpu";
+            }
         }
     }
 }
