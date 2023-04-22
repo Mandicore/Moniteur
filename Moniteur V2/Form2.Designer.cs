@@ -1,6 +1,6 @@
 ﻿namespace Moniteur_V2
 {
-    partial class Form2
+    partial class LienSite
     {
         /// <summary>
         /// Required designer variable.
@@ -28,18 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
+            button1 = new Button();
             SuspendLayout();
             // 
-            // Form2
+            // button1
+            // 
+            button1.Location = new Point(292, 133);
+            button1.Name = "button1";
+            button1.Size = new Size(180, 86);
+            button1.TabIndex = 0;
+            button1.Text = "button1";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
+            // 
+            // LienSite
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Name = "Form2";
+            Controls.Add(button1);
+            Name = "LienSite";
             Text = "Form2";
+            Load += Form2_Load;
             ResumeLayout(false);
         }
 
         #endregion
+
+        private Button button1;
     }
 }

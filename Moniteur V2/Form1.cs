@@ -1,7 +1,10 @@
+using System.Diagnostics;
+
 namespace Moniteur_V2
 {
     public partial class Form1 : Form
     {
+        private PerformanceCounter cpuCounter;
         public Form1()
         {
             InitializeComponent();
@@ -12,6 +15,11 @@ namespace Moniteur_V2
             Thread.Text = informations.NbThreads();
             //temp.Text = informations.GetTemp();
             Fabriquant.Text = informations.FacturName();
+
+
+            cpuCounter = new PerformanceCounter("Processor", "% Processor Time", "_Total");
+            timer1.Interval = 250; // mettez à jour l'utilisation du CPU toutes les 1 seconde
+            timer1.Start();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -56,8 +64,20 @@ namespace Moniteur_V2
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Form2 Form2 = new Form2();
+            LienSite Form2 = new LienSite();
             Form2.Show();
+        }
+
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            float cpuUsage = cpuCounter.NextValue();
+            counter.Text = $"CPU Usage: {cpuUsage:F1}%";
+        }
+
+        private void label4_Click_2(object sender, EventArgs e)
+        {
+
         }
     }
 }

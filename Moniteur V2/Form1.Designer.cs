@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             label1 = new Label();
             AppName = new Label();
             label2 = new Label();
@@ -38,6 +39,8 @@
             Thread = new Label();
             button1 = new Button();
             Fabriquant = new Label();
+            timer1 = new System.Windows.Forms.Timer(components);
+            counter = new Label();
             SuspendLayout();
             // 
             // label1
@@ -129,7 +132,7 @@
             // button1
             // 
             button1.Font = new Font("Calibri", 14.25F, FontStyle.Italic, GraphicsUnit.Point);
-            button1.Location = new Point(160, 378);
+            button1.Location = new Point(387, 414);
             button1.Name = "button1";
             button1.Size = new Size(136, 33);
             button1.TabIndex = 8;
@@ -146,12 +149,28 @@
             Fabriquant.TabIndex = 9;
             Fabriquant.Text = "label4";
             // 
+            // timer1
+            // 
+            timer1.Tick += timer1_Tick;
+            // 
+            // counter
+            // 
+            counter.AutoSize = true;
+            counter.Font = new Font("Cambria", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
+            counter.Location = new Point(13, 315);
+            counter.Name = "counter";
+            counter.Size = new Size(59, 22);
+            counter.TabIndex = 10;
+            counter.Text = "label4";
+            counter.Click += label4_Click_2;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.WhiteSmoke;
             ClientSize = new Size(914, 561);
+            Controls.Add(counter);
             Controls.Add(Fabriquant);
             Controls.Add(button1);
             Controls.Add(Thread);
@@ -184,5 +203,7 @@
         private Label Thread;
         private Button button1;
         private Label Fabriquant;
+        private System.Windows.Forms.Timer timer1;
+        private Label counter;
     }
 }
