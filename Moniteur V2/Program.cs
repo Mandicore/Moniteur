@@ -172,4 +172,26 @@ namespace Moniteur_V2
 
         }*/
     }
+    public class Os
+    {
+        public static string GetOsInfos(string param)
+        {
+            ManagementObjectSearcher mos = new ManagementObjectSearcher("select * from Win32_OperatingSystem");
+            foreach (ManagementObject mo in mos.Get())
+            {
+                switch (param)
+                {
+                    case "os":
+                        return mo["Caption"].ToString();
+                    case "arch":
+                        return mo["OSArchitecture"].ToString();
+                    case "osv":
+                        return mo["CSDVersion"].ToString();
+
+
+                }
+            }
+            return "";
+        }
+    }
 }

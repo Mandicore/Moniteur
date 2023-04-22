@@ -1,4 +1,5 @@
 using System.Diagnostics;
+using System.Management;
 
 namespace Moniteur_V2
 {
@@ -27,8 +28,8 @@ namespace Moniteur_V2
 
             //GPU infos display
 
-            var gpuList = InformationsGpu.GetGpuName();
-            if (gpuList.Count == 1)
+            GpuName1.Text = InformationsGpu.GetGpuName()[0];
+            /*if (gpuList.Count == 1)
             {
                 GpuName1.Text = gpuList[0];
             }
@@ -42,12 +43,19 @@ namespace Moniteur_V2
                 GpuName1.Text = gpuList[0];
                 GpuName2.Text = gpuList[1];
                 GpuName3.Text = gpuList[2];
-            }
+            }*/
             string vram = "Vram de la carte graphique principal : " + InformationsGpu.GetVram()[0];
             Vram.Text = vram;
 
             //string GhzGpu = InformationsGpu.GetMaxClockSpeed()[0].ToString();
             //GpuGhz.Text = GhzGpu;
+
+
+
+            //Infos Os
+
+            OsInfos.Text = Os.GetOsInfos("os");
+            Arch.Text = "Architecture : " + Os.GetOsInfos("arch");
 
         }
 
@@ -130,6 +138,15 @@ namespace Moniteur_V2
         }
 
         private void credit_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void timerGpu_Tick(object sender, EventArgs e)
+        {
+        }
+
+        private void label4_Click_5(object sender, EventArgs e)
         {
 
         }

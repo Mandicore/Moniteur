@@ -43,10 +43,11 @@
             counter = new Label();
             graphiquecard = new Label();
             GpuName1 = new Label();
-            GpuName2 = new Label();
-            GpuName3 = new Label();
             Vram = new Label();
             credit = new Label();
+            label = new Label();
+            OsInfos = new Label();
+            Arch = new Label();
             SuspendLayout();
             // 
             // label1
@@ -89,7 +90,7 @@
             label3.BackColor = Color.DimGray;
             label3.Location = new Point(447, 143);
             label3.Name = "label3";
-            label3.Size = new Size(10, 268);
+            label3.Size = new Size(10, 323);
             label3.TabIndex = 3;
             // 
             // CPUName
@@ -139,7 +140,7 @@
             // 
             button1.BackColor = Color.Transparent;
             button1.Font = new Font("Calibri", 14.25F, FontStyle.Italic, GraphicsUnit.Point);
-            button1.Location = new Point(387, 414);
+            button1.Location = new Point(386, 469);
             button1.Name = "button1";
             button1.Size = new Size(141, 33);
             button1.TabIndex = 8;
@@ -176,34 +177,17 @@
             // GpuName1
             // 
             GpuName1.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            GpuName1.Location = new Point(470, 196);
+            GpuName1.Location = new Point(463, 202);
             GpuName1.Name = "GpuName1";
             GpuName1.Size = new Size(432, 23);
             GpuName1.TabIndex = 12;
             GpuName1.Text = "label4";
             GpuName1.Click += label4_Click_4;
             // 
-            // GpuName2
-            // 
-            GpuName2.Font = new Font("Verdana", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            GpuName2.Location = new Point(486, 229);
-            GpuName2.Name = "GpuName2";
-            GpuName2.Size = new Size(416, 23);
-            GpuName2.TabIndex = 13;
-            GpuName2.Click += GpuName2_Click;
-            // 
-            // GpuName3
-            // 
-            GpuName3.Font = new Font("Verdana", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
-            GpuName3.Location = new Point(486, 270);
-            GpuName3.Name = "GpuName3";
-            GpuName3.Size = new Size(416, 23);
-            GpuName3.TabIndex = 14;
-            // 
             // Vram
             // 
             Vram.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            Vram.Location = new Point(470, 314);
+            Vram.Location = new Point(463, 248);
             Vram.Name = "Vram";
             Vram.Size = new Size(432, 18);
             Vram.TabIndex = 15;
@@ -223,16 +207,46 @@
             credit.TextAlign = ContentAlignment.MiddleRight;
             credit.Click += credit_Click;
             // 
+            // label
+            // 
+            label.AutoSize = true;
+            label.Font = new Font("Cambria", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label.Location = new Point(463, 310);
+            label.Name = "label";
+            label.Size = new Size(160, 22);
+            label.TabIndex = 17;
+            label.Text = "Informations Os :";
+            // 
+            // OsInfos
+            // 
+            OsInfos.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            OsInfos.Location = new Point(470, 374);
+            OsInfos.Name = "OsInfos";
+            OsInfos.Size = new Size(432, 23);
+            OsInfos.TabIndex = 18;
+            OsInfos.Text = "label4";
+            OsInfos.Click += label4_Click_5;
+            // 
+            // Arch
+            // 
+            Arch.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            Arch.Location = new Point(470, 421);
+            Arch.Name = "Arch";
+            Arch.Size = new Size(425, 23);
+            Arch.TabIndex = 19;
+            Arch.Text = "label4";
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.WhiteSmoke;
             ClientSize = new Size(914, 561);
+            Controls.Add(Arch);
+            Controls.Add(OsInfos);
+            Controls.Add(label);
             Controls.Add(credit);
             Controls.Add(Vram);
-            Controls.Add(GpuName3);
-            Controls.Add(GpuName2);
             Controls.Add(GpuName1);
             Controls.Add(graphiquecard);
             Controls.Add(counter);
@@ -271,9 +285,10 @@
         private Label counter;
         private Label graphiquecard;
         private Label GpuName1;
-        private Label GpuName2;
-        private Label GpuName3;
         private Label Vram;
         private Label credit;
+        private Label label;
+        private Label OsInfos;
+        private Label Arch;
     }
 }
