@@ -18,11 +18,6 @@ namespace Moniteur_V2
     }
     public class informations
     {
-        public static ManagementObjectSearcher GetInfosCpu()
-        {
-            ManagementObjectSearcher CpuInfos = new ManagementObjectSearcher("select * from Win32_Processor");
-            return CpuInfos;
-        }
         public static string ComputerName()
         {
             try
@@ -41,6 +36,14 @@ namespace Moniteur_V2
             string appName = "Moniteur d'activités";
             return appName;
         }
+    }
+    public class informationsCpu
+    {
+        public static ManagementObjectSearcher GetInfosCpu()
+        {
+            ManagementObjectSearcher CpuInfos = new ManagementObjectSearcher("select * from Win32_Processor");
+            return CpuInfos;
+        }
         public static string CpuName()
         {
             return GetNames("Name", "Processeur");
@@ -49,7 +52,7 @@ namespace Moniteur_V2
         {
             return GetNames("Manufacturer", "Fabriquant");
         }
-        public static string NbCores() 
+        public static string NbCores()
         {
             return GetCandT("NumberOfCores", "Cœur");
         }
@@ -72,20 +75,20 @@ namespace Moniteur_V2
                     int reponseInt = int.Parse(reponse);
                     if (reponseInt > 1)
                     {
-                        return name + "s : " + reponseInt;
+                        return "Nombre de " + name + "s : " + reponseInt;
                     }
                     else
                     {
-                        return name + " : " + reponseInt;
+                        return "Nombre de " + name + " : " + reponseInt;
                     }
                 }
                 catch
                 {
-                    return name + "(s) : " + reponse;
+                    return "Nombre de " + name + "(s) : " + reponse;
                 }
 
             }
-            return name + "(s) : " + "ERREUR";
+            return "Nombre de " + name + "(s) : " + "ERREUR";
         }
         public static string GetNames(string element, string name)
         {

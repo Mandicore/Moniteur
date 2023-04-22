@@ -38,9 +38,10 @@
             Core = new Label();
             Thread = new Label();
             button1 = new Button();
-            Fabriquant = new Label();
             timer1 = new System.Windows.Forms.Timer(components);
             counter = new Label();
+            graphiquecard = new Label();
+            GpuName = new Label();
             SuspendLayout();
             // 
             // label1
@@ -89,7 +90,7 @@
             // CPUName
             // 
             CPUName.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            CPUName.Location = new Point(12, 224);
+            CPUName.Location = new Point(12, 187);
             CPUName.Name = "CPUName";
             CPUName.Size = new Size(429, 27);
             CPUName.TabIndex = 4;
@@ -112,7 +113,7 @@
             // 
             Core.AutoSize = true;
             Core.Font = new Font("Cambria", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            Core.Location = new Point(12, 268);
+            Core.Location = new Point(12, 244);
             Core.Name = "Core";
             Core.Size = new Size(59, 22);
             Core.TabIndex = 6;
@@ -123,7 +124,7 @@
             // 
             Thread.AutoSize = true;
             Thread.Font = new Font("Cambria", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            Thread.Location = new Point(173, 268);
+            Thread.Location = new Point(12, 310);
             Thread.Name = "Thread";
             Thread.Size = new Size(59, 22);
             Thread.TabIndex = 7;
@@ -131,23 +132,15 @@
             // 
             // button1
             // 
+            button1.BackColor = Color.Transparent;
             button1.Font = new Font("Calibri", 14.25F, FontStyle.Italic, GraphicsUnit.Point);
             button1.Location = new Point(387, 414);
             button1.Name = "button1";
-            button1.Size = new Size(136, 33);
+            button1.Size = new Size(141, 33);
             button1.TabIndex = 8;
-            button1.Text = "Voir plus d'info";
-            button1.UseVisualStyleBackColor = true;
+            button1.Text = "Voir plus d'infos";
+            button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
-            // 
-            // Fabriquant
-            // 
-            Fabriquant.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            Fabriquant.Location = new Point(13, 193);
-            Fabriquant.Name = "Fabriquant";
-            Fabriquant.Size = new Size(219, 23);
-            Fabriquant.TabIndex = 9;
-            Fabriquant.Text = "label4";
             // 
             // timer1
             // 
@@ -157,12 +150,33 @@
             // 
             counter.AutoSize = true;
             counter.Font = new Font("Cambria", 14.25F, FontStyle.Regular, GraphicsUnit.Point);
-            counter.Location = new Point(13, 315);
+            counter.Location = new Point(12, 374);
             counter.Name = "counter";
             counter.Size = new Size(59, 22);
             counter.TabIndex = 10;
             counter.Text = "label4";
             counter.Click += label4_Click_2;
+            // 
+            // graphiquecard
+            // 
+            graphiquecard.AutoSize = true;
+            graphiquecard.Font = new Font("Cambria", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            graphiquecard.Location = new Point(463, 152);
+            graphiquecard.Name = "graphiquecard";
+            graphiquecard.Size = new Size(161, 22);
+            graphiquecard.TabIndex = 11;
+            graphiquecard.Text = "Carte Graphique :";
+            graphiquecard.Click += label4_Click_3;
+            // 
+            // GpuName
+            // 
+            GpuName.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            GpuName.Location = new Point(470, 196);
+            GpuName.Name = "GpuName";
+            GpuName.Size = new Size(432, 23);
+            GpuName.TabIndex = 12;
+            GpuName.Text = "label4";
+            GpuName.Click += label4_Click_4;
             // 
             // Form1
             // 
@@ -170,8 +184,9 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.WhiteSmoke;
             ClientSize = new Size(914, 561);
+            Controls.Add(GpuName);
+            Controls.Add(graphiquecard);
             Controls.Add(counter);
-            Controls.Add(Fabriquant);
             Controls.Add(button1);
             Controls.Add(Thread);
             Controls.Add(Core);
@@ -202,8 +217,9 @@
         private Label Core;
         private Label Thread;
         private Button button1;
-        private Label Fabriquant;
         private System.Windows.Forms.Timer timer1;
         private Label counter;
+        private Label graphiquecard;
+        private Label GpuName;
     }
 }
