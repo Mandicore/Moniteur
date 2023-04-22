@@ -10,15 +10,15 @@ namespace Moniteur_V2
             InitializeComponent();
 
             //Computer infos display
-            label1.Text = informations.ComputerName();
-            AppName.Text = informations.AppName();
+            label1.Text = Informations.ComputerName();
+            AppName.Text = Informations.AppName();
 
             //CPU infos display
-            CPUName.Text = informationsCpu.CpuName();
-            Core.Text = informationsCpu.NbCores();
-            Thread.Text = informationsCpu.NbThreads();
-            //temp.Text = informations.GetTemp();
-            //Fabriquant.Text = informations.FacturName();
+            CPUName.Text = InformationsCpu.CpuName();
+            Core.Text = InformationsCpu.NbCores();
+            Thread.Text = InformationsCpu.NbThreads();
+            //temp.Text = InformationsCpu.GetTemp();
+            //Fabriquant.Text = InformationsCpu.FacturName();
 
             //Cpu Counter
             cpuCounter = new PerformanceCounter("Processor", "% Processor Time", "_Total");
@@ -27,7 +27,24 @@ namespace Moniteur_V2
 
             //GPU infos display
 
-            //GpuName.Text = informations.GpuName();
+            var gpuList = InformationsGpu.GetGpuName();
+            if (gpuList.Count == 1)
+            {
+                GpuName1.Text = gpuList[0];
+            }
+            else if (gpuList.Count == 2)
+            {
+                GpuName1.Text = gpuList[0];
+                GpuName2.Text = gpuList[1];
+            }
+            else
+            {
+                GpuName1.Text = gpuList[0];
+                GpuName2.Text = gpuList[1];
+                GpuName3.Text = gpuList[2];
+            }
+            string vram = "Vram de la carte graphique principal : " + InformationsGpu.GetVram()[0];
+            Vram.Text = vram;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -94,6 +111,16 @@ namespace Moniteur_V2
         }
 
         private void label4_Click_4(object sender, EventArgs e)
+        {
+
+        }
+
+        private void GpuName2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Vram_Click(object sender, EventArgs e)
         {
 
         }

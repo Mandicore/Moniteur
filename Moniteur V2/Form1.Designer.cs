@@ -41,7 +41,10 @@
             timer1 = new System.Windows.Forms.Timer(components);
             counter = new Label();
             graphiquecard = new Label();
-            GpuName = new Label();
+            GpuName1 = new Label();
+            GpuName2 = new Label();
+            GpuName3 = new Label();
+            Vram = new Label();
             SuspendLayout();
             // 
             // label1
@@ -168,15 +171,42 @@
             graphiquecard.Text = "Carte Graphique :";
             graphiquecard.Click += label4_Click_3;
             // 
-            // GpuName
+            // GpuName1
             // 
-            GpuName.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            GpuName.Location = new Point(470, 196);
-            GpuName.Name = "GpuName";
-            GpuName.Size = new Size(432, 23);
-            GpuName.TabIndex = 12;
-            GpuName.Text = "label4";
-            GpuName.Click += label4_Click_4;
+            GpuName1.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            GpuName1.Location = new Point(470, 196);
+            GpuName1.Name = "GpuName1";
+            GpuName1.Size = new Size(432, 23);
+            GpuName1.TabIndex = 12;
+            GpuName1.Text = "label4";
+            GpuName1.Click += label4_Click_4;
+            // 
+            // GpuName2
+            // 
+            GpuName2.Font = new Font("Verdana", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            GpuName2.Location = new Point(486, 229);
+            GpuName2.Name = "GpuName2";
+            GpuName2.Size = new Size(416, 23);
+            GpuName2.TabIndex = 13;
+            GpuName2.Click += GpuName2_Click;
+            // 
+            // GpuName3
+            // 
+            GpuName3.Font = new Font("Verdana", 11.25F, FontStyle.Regular, GraphicsUnit.Point);
+            GpuName3.Location = new Point(486, 270);
+            GpuName3.Name = "GpuName3";
+            GpuName3.Size = new Size(416, 23);
+            GpuName3.TabIndex = 14;
+            // 
+            // Vram
+            // 
+            Vram.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            Vram.Location = new Point(470, 314);
+            Vram.Name = "Vram";
+            Vram.Size = new Size(432, 18);
+            Vram.TabIndex = 15;
+            Vram.Text = "vram";
+            Vram.Click += Vram_Click;
             // 
             // Form1
             // 
@@ -184,7 +214,10 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.WhiteSmoke;
             ClientSize = new Size(914, 561);
-            Controls.Add(GpuName);
+            Controls.Add(Vram);
+            Controls.Add(GpuName3);
+            Controls.Add(GpuName2);
+            Controls.Add(GpuName1);
             Controls.Add(graphiquecard);
             Controls.Add(counter);
             Controls.Add(button1);
@@ -220,6 +253,9 @@
         private System.Windows.Forms.Timer timer1;
         private Label counter;
         private Label graphiquecard;
-        private Label GpuName;
+        private Label GpuName1;
+        private Label GpuName2;
+        private Label GpuName3;
+        private Label Vram;
     }
 }

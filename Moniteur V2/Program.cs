@@ -16,7 +16,7 @@ namespace Moniteur_V2
             Application.Run(new Form1());
         }
     }
-    public class informations
+    public class Informations
     {
         public static string ComputerName()
         {
@@ -37,7 +37,7 @@ namespace Moniteur_V2
             return appName;
         }
     }
-    public class informationsCpu
+    public class InformationsCpu
     {
         public static ManagementObjectSearcher GetInfosCpu()
         {
@@ -105,6 +105,55 @@ namespace Moniteur_V2
             else
             {
                 return "ERREUR : impossible de récupérer le nom du " + name;
+            }
+        }
+    }
+    public class InformationsGpu
+    {
+        public static List<string> GetGpuName()
+        {
+            var gpuNames = new List<string>();
+            ManagementObjectSearcher infos = new ManagementObjectSearcher("SELECT * FROM Win32_VideoController");
+            foreach (ManagementObject info in infos.Get())
+            {
+                string gpuName = info["Name"].ToString();
+                gpuNames.Add(gpuName);
+            }
+            return gpuNames;
+        } 
+        public static List<string> GetVram()
+        {
+            List<ulong> vramSizes = new List<ulong>();
+            ulong vramSize = 0;
+            ManagementObjectSearcher searcher = new ManagementObjectSearcher("SELECT * FROM Win32_VideoController");
+            foreach (ManagementObject obj in searcher.Get())
+            {
+                vramSize = Convert.ToUInt64(obj["AdapterRAM"]);
+                vramSizes.Add(vramSize);
+            }
+            var vramInt = new List<float>();
+            try
+            {
+                foreach (ulong i in vramSizes)
+                {
+                    int j = Convert.ToInt32(i);
+                    float t = j / (1024 * 1024);
+                    float r = t / 1000;
+                    vramInt.Add(r);
+                }
+
+                var vramString = new List<string>();
+
+                foreach(float Elements in vramInt)
+                {
+                    string reponse = Elements.ToString("0.##") + " Go";
+                    vramString.Add(reponse);
+                }
+                return vramString;
+            }
+            catch
+            {
+                return new List<string>{ "ERREUR" };
             }
         }
     }
