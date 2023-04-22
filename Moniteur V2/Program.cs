@@ -156,5 +156,20 @@ namespace Moniteur_V2
                 return new List<string>{ "ERREUR" };
             }
         }
+        /*public static List<float> GetMaxClockSpeed()
+        {
+            var maxClockSpeeds = new List<float>();
+            using (ManagementObjectSearcher searcher = new ManagementObjectSearcher("SELECT MaxClockSpeed FROM Win32_VideoController"))
+            {
+                foreach (ManagementObject obj in searcher.Get())
+                {
+                    float maxClockSpeed = (float)obj["MaxClockSpeed"];
+                    maxClockSpeed = maxClockSpeed / 1000; 
+                    maxClockSpeeds.Add(maxClockSpeed);
+                }
+                return maxClockSpeeds; 
+            }
+
+        }*/
     }
 }

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             label1 = new Label();
             AppName = new Label();
             label2 = new Label();
@@ -38,13 +39,14 @@
             Core = new Label();
             Thread = new Label();
             button1 = new Button();
-            timer1 = new System.Windows.Forms.Timer(components);
+            timerCpu = new System.Windows.Forms.Timer(components);
             counter = new Label();
             graphiquecard = new Label();
             GpuName1 = new Label();
             GpuName2 = new Label();
             GpuName3 = new Label();
             Vram = new Label();
+            credit = new Label();
             SuspendLayout();
             // 
             // label1
@@ -145,9 +147,9 @@
             button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
-            // timer1
+            // timerCpu
             // 
-            timer1.Tick += timer1_Tick;
+            timerCpu.Tick += timer1_Tick;
             // 
             // counter
             // 
@@ -208,12 +210,26 @@
             Vram.Text = "vram";
             Vram.Click += Vram_Click;
             // 
+            // credit
+            // 
+            credit.BackColor = Color.FromArgb(128, 128, 255);
+            credit.Font = new Font("Cambria", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            credit.ForeColor = Color.White;
+            credit.Location = new Point(12, 521);
+            credit.Name = "credit";
+            credit.Size = new Size(890, 31);
+            credit.TabIndex = 16;
+            credit.Text = "Créer par FIGUEIRAS Jossua en 2023";
+            credit.TextAlign = ContentAlignment.MiddleRight;
+            credit.Click += credit_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.WhiteSmoke;
             ClientSize = new Size(914, 561);
+            Controls.Add(credit);
             Controls.Add(Vram);
             Controls.Add(GpuName3);
             Controls.Add(GpuName2);
@@ -229,6 +245,7 @@
             Controls.Add(label2);
             Controls.Add(AppName);
             Controls.Add(label1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximumSize = new Size(930, 600);
             MinimumSize = new Size(930, 600);
             Name = "Form1";
@@ -250,12 +267,13 @@
         private Label Core;
         private Label Thread;
         private Button button1;
-        private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer timerCpu;
         private Label counter;
         private Label graphiquecard;
         private Label GpuName1;
         private Label GpuName2;
         private Label GpuName3;
         private Label Vram;
+        private Label credit;
     }
 }

@@ -22,8 +22,8 @@ namespace Moniteur_V2
 
             //Cpu Counter
             cpuCounter = new PerformanceCounter("Processor", "% Processor Time", "_Total");
-            timer1.Interval = 250; // mettez à jour l'utilisation du CPU toutes les 1 seconde
-            timer1.Start();
+            timerCpu.Interval = 250; // mettez à jour l'utilisation du CPU toutes les 1 seconde
+            timerCpu.Start();
 
             //GPU infos display
 
@@ -45,6 +45,10 @@ namespace Moniteur_V2
             }
             string vram = "Vram de la carte graphique principal : " + InformationsGpu.GetVram()[0];
             Vram.Text = vram;
+
+            //string GhzGpu = InformationsGpu.GetMaxClockSpeed()[0].ToString();
+            //GpuGhz.Text = GhzGpu;
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -121,6 +125,11 @@ namespace Moniteur_V2
         }
 
         private void Vram_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void credit_Click(object sender, EventArgs e)
         {
 
         }
