@@ -1,6 +1,6 @@
 ﻿namespace Moniteur_V2
 {
-    partial class LienSite
+    partial class Page2
     {
         /// <summary>
         /// Required designer variable.
@@ -28,27 +28,32 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Page2));
             button1 = new Button();
             SuspendLayout();
             // 
             // button1
             // 
-            button1.Location = new Point(292, 133);
+            button1.Location = new Point(390, 394);
             button1.Name = "button1";
-            button1.Size = new Size(180, 86);
+            button1.Size = new Size(106, 44);
             button1.TabIndex = 0;
             button1.Text = "button1";
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
-            // LienSite
+            // Page2
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            BackColor = Color.DarkGray;
+            ClientSize = new Size(1364, 749);
             Controls.Add(button1);
-            Name = "LienSite";
-            Text = "Form2";
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            MinimizeBox = false;
+            Name = "Page2";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Moniteur d'activités";
             Load += Form2_Load;
             ResumeLayout(false);
         }

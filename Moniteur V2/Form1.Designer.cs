@@ -169,9 +169,9 @@
             graphiquecard.Font = new Font("Cambria", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             graphiquecard.Location = new Point(463, 152);
             graphiquecard.Name = "graphiquecard";
-            graphiquecard.Size = new Size(161, 22);
+            graphiquecard.Size = new Size(254, 22);
             graphiquecard.TabIndex = 11;
-            graphiquecard.Text = "Carte Graphique :";
+            graphiquecard.Text = "Carte Graphique principale :";
             graphiquecard.Click += label4_Click_3;
             // 
             // GpuName1

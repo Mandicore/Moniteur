@@ -101,7 +101,7 @@ namespace Moniteur_V2
 
         private void button1_Click(object sender, EventArgs e)
         {
-            LienSite Form2 = new LienSite();
+            Page2 Form2 = new Page2();
             Form2.Show();
         }
 

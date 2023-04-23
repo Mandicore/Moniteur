@@ -11,11 +11,15 @@ using System.Windows.Forms;
 
 namespace Moniteur_V2
 {
-    public partial class LienSite : Form
+    public partial class Page2 : Form
     {
-        public LienSite()
+        public Page2()
         {
             InitializeComponent();
+            this.WindowState = FormWindowState.Maximized; // maximise la fenêtre pour qu'elle prenne toute la place de l'écran
+            this.FormBorderStyle = FormBorderStyle.Sizable; // définit la bordure de la fenêtre à une bordure redimensionnable
+
+
         }
 
         private void Form2_Load(object sender, EventArgs e)
