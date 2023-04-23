@@ -14,6 +14,7 @@ namespace Moniteur_V2
 {
     public partial class Page2 : Form
     {
+        private PerformanceCounter _ramCounter;
         public Page2()
         {
             InitializeComponent();
@@ -21,13 +22,15 @@ namespace Moniteur_V2
             this.FormBorderStyle = FormBorderStyle.Sizable; // définit la bordure de la fenêtre à une bordure redimensionnable
 
             ComputerName.Text = Informations.ComputerName();
-            OsVersion.Text = Os.GetOsInfos("os");
+            OsVersion.Text = Os.GetOsInfos("os") + " , " + Os.GetOsInfos("arch");
+            string RamGo = GetRamInfos.getRam() + " Go";
+            RamI.Text = RamGo;
+
 
         }
 
         private void Form2_Load(object sender, EventArgs e)
         {
-
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -65,7 +68,6 @@ namespace Moniteur_V2
                     Erreur.Show();
                 }
             }
-
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -81,6 +83,20 @@ namespace Moniteur_V2
         private void label4_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void RamI_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void timerRam_Tick(object sender, EventArgs e)
+        {
         }
     }
 }

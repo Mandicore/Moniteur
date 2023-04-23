@@ -194,4 +194,18 @@ namespace Moniteur_V2
             return "";
         }
     }
+    public class GetRamInfos
+    {
+        public static int getRam()
+        {
+            int totalMemoryMB = 0;
+            ManagementObjectSearcher searcher = new ManagementObjectSearcher("SELECT * FROM Win32_ComputerSystem");
+            foreach (ManagementObject item in searcher.Get())
+            {
+                long totalMemoryBytes = Convert.ToInt64(item["TotalPhysicalMemory"]);
+                totalMemoryMB = Convert.ToInt32(totalMemoryBytes / (1024 * 1024));
+            }
+            return totalMemoryMB / 1000;
+        }
+    }
 }

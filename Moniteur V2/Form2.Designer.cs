@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Page2));
             button1 = new Button();
             Title = new Label();
@@ -39,6 +40,10 @@
             OsVersion = new Label();
             label4 = new Label();
             label5 = new Label();
+            label6 = new Label();
+            RamI = new Label();
+            timerRam = new System.Windows.Forms.Timer(components);
+            RamUse = new Label();
             SuspendLayout();
             // 
             // button1
@@ -96,7 +101,7 @@
             // ComputerName
             // 
             ComputerName.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            ComputerName.Location = new Point(23, 226);
+            ComputerName.Location = new Point(23, 201);
             ComputerName.Name = "ComputerName";
             ComputerName.Size = new Size(298, 48);
             ComputerName.TabIndex = 5;
@@ -117,7 +122,7 @@
             // OsVersion
             // 
             OsVersion.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            OsVersion.Location = new Point(23, 338);
+            OsVersion.Location = new Point(23, 282);
             OsVersion.Name = "OsVersion";
             OsVersion.Size = new Size(298, 51);
             OsVersion.TabIndex = 7;
@@ -137,11 +142,45 @@
             // label5
             // 
             label5.Font = new Font("Cambria", 14.25F, FontStyle.Italic, GraphicsUnit.Point);
-            label5.Location = new Point(23, 285);
+            label5.Location = new Point(23, 259);
             label5.Name = "label5";
             label5.Size = new Size(173, 23);
             label5.TabIndex = 9;
             label5.Text = "Version de l'Os :";
+            // 
+            // label6
+            // 
+            label6.Font = new Font("Cambria", 14.25F, FontStyle.Italic, GraphicsUnit.Point);
+            label6.Location = new Point(23, 343);
+            label6.Name = "label6";
+            label6.Size = new Size(173, 23);
+            label6.TabIndex = 10;
+            label6.Text = "Ram installée: ";
+            // 
+            // RamI
+            // 
+            RamI.AutoSize = true;
+            RamI.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            RamI.Location = new Point(23, 378);
+            RamI.Name = "RamI";
+            RamI.Size = new Size(58, 18);
+            RamI.TabIndex = 11;
+            RamI.Text = "label7";
+            RamI.Click += RamI_Click;
+            // 
+            // timerRam
+            // 
+            timerRam.Tick += timerRam_Tick;
+            // 
+            // RamUse
+            // 
+            RamUse.AutoSize = true;
+            RamUse.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            RamUse.Location = new Point(23, 442);
+            RamUse.Name = "RamUse";
+            RamUse.Size = new Size(58, 18);
+            RamUse.TabIndex = 12;
+            RamUse.Text = "label7";
             // 
             // Page2
             // 
@@ -149,6 +188,9 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(64, 64, 64);
             ClientSize = new Size(1364, 749);
+            Controls.Add(RamUse);
+            Controls.Add(RamI);
+            Controls.Add(label6);
             Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(OsVersion);
@@ -166,6 +208,7 @@
             Text = "Moniteur d'activités";
             Load += Form2_Load;
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -180,5 +223,9 @@
         private Label OsVersion;
         private Label label4;
         private Label label5;
+        private Label label6;
+        private Label RamI;
+        private System.Windows.Forms.Timer timerRam;
+        private Label RamUse;
     }
 }
