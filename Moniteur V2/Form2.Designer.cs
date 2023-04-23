@@ -46,10 +46,12 @@
             Totalstorage = new Label();
             label8 = new Label();
             Title = new Label();
-            label9 = new Label();
-            label10 = new Label();
-            pourcentcpu = new Label();
             timerCpu = new System.Windows.Forms.Timer(components);
+            label9 = new Label();
+            pourcentcpu = new Label();
+            label10 = new Label();
+            NameProcesseur = new Label();
+            core = new Label();
             SuspendLayout();
             // 
             // button1
@@ -215,37 +217,63 @@
             Title.TextAlign = ContentAlignment.MiddleCenter;
             Title.Click += label1_Click;
             // 
+            // timerCpu
+            // 
+            timerCpu.Tick += timerCpu_Tick;
+            // 
             // label9
             // 
             label9.Image = (Image)resources.GetObject("label9.Image");
-            label9.Location = new Point(458, 217);
+            label9.Location = new Point(411, 231);
             label9.Name = "label9";
-            label9.Size = new Size(417, 350);
-            label9.TabIndex = 16;
-            // 
-            // label10
-            // 
-            label10.BackColor = Color.Transparent;
-            label10.Image = (Image)resources.GetObject("label10.Image");
-            label10.Location = new Point(551, 365);
-            label10.Name = "label10";
-            label10.Size = new Size(165, 136);
-            label10.TabIndex = 17;
+            label9.Size = new Size(521, 407);
+            label9.TabIndex = 19;
+            label9.Click += label9_Click;
             // 
             // pourcentcpu
             // 
             pourcentcpu.BackColor = Color.FromArgb(128, 128, 255);
-            pourcentcpu.Font = new Font("Verdana", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            pourcentcpu.Font = new Font("Verdana", 12F, FontStyle.Bold, GraphicsUnit.Point);
             pourcentcpu.ForeColor = Color.White;
-            pourcentcpu.Location = new Point(569, 551);
+            pourcentcpu.Location = new Point(614, 478);
             pourcentcpu.Name = "pourcentcpu";
-            pourcentcpu.Size = new Size(180, 39);
-            pourcentcpu.TabIndex = 18;
+            pourcentcpu.Size = new Size(106, 33);
+            pourcentcpu.TabIndex = 20;
             pourcentcpu.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // timerCpu
+            // label10
             // 
-            timerCpu.Tick += timerCpu_Tick;
+            label10.BackColor = Color.White;
+            label10.Font = new Font("Verdana", 24F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            label10.ForeColor = Color.FromArgb(128, 128, 255);
+            label10.Location = new Point(431, 105);
+            label10.Name = "label10";
+            label10.Size = new Size(480, 46);
+            label10.TabIndex = 21;
+            label10.Text = "Mon Processeur";
+            label10.TextAlign = ContentAlignment.MiddleCenter;
+            label10.Click += label10_Click_1;
+            // 
+            // NameProcesseur
+            // 
+            NameProcesseur.Font = new Font("Cambria", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            NameProcesseur.Location = new Point(460, 194);
+            NameProcesseur.Name = "NameProcesseur";
+            NameProcesseur.Size = new Size(407, 37);
+            NameProcesseur.TabIndex = 22;
+            NameProcesseur.Text = "label11";
+            NameProcesseur.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // core
+            // 
+            core.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            core.Location = new Point(460, 256);
+            core.Name = "core";
+            core.Size = new Size(407, 35);
+            core.TabIndex = 23;
+            core.Text = "label11";
+            core.TextAlign = ContentAlignment.MiddleCenter;
+            core.Click += label11_Click;
             // 
             // Page2
             // 
@@ -253,8 +281,10 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1364, 749);
-            Controls.Add(pourcentcpu);
+            Controls.Add(core);
+            Controls.Add(NameProcesseur);
             Controls.Add(label10);
+            Controls.Add(pourcentcpu);
             Controls.Add(label9);
             Controls.Add(label8);
             Controls.Add(Totalstorage);
@@ -300,9 +330,11 @@
         private Label Totalstorage;
         private Label label8;
         private Label Title;
-        private Label label9;
-        private Label label10;
-        private Label pourcentcpu;
         private System.Windows.Forms.Timer timerCpu;
+        private Label label9;
+        private Label pourcentcpu;
+        private Label label10;
+        private Label NameProcesseur;
+        private Label core;
     }
 }

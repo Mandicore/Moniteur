@@ -35,8 +35,10 @@ namespace Moniteur_V2
             nbdisk.Text = "Nombre de " + disk + Disk.GetDiskCount() + " Disques";
             Totalstorage.Text = "Capacitée Max : " + Disk.GetDiskCapacity() + " Go";
             cpuCounter = new PerformanceCounter("Processor", "% Processor Time", "_Total");
-            timerCpu.Interval = 250; // mettez à jour l'utilisation du CPU toutes les 1 seconde
+            timerCpu.Interval = 600; // mettez à jour l'utilisation du CPU toutes les 1 seconde
             timerCpu.Start();
+            NameProcesseur.Text = InformationsCpu.CpuName();
+            core.Text = InformationsCpu.NbCores() + " | " + InformationsCpu.NbThreads(); 
         }
 
         private void Form2_Load(object sender, EventArgs e)
@@ -138,6 +140,53 @@ namespace Moniteur_V2
         {
             float cpuUsage = cpuCounter.NextValue();
             pourcentcpu.Text = $"{cpuUsage:F1}%";
+
+            if (cpuUsage < 20)
+            {
+                pourcentcpu.BackColor = Color.White;
+                pourcentcpu.ForeColor = Color.Black;
+            }
+            else if ((cpuUsage > 20) && (cpuUsage < 40))
+            {
+                pourcentcpu.BackColor = Color.Green;
+                pourcentcpu.ForeColor = Color.White;
+            }
+            else if ((cpuUsage > 40) && (cpuUsage < 60))
+            {
+                pourcentcpu.BackColor = Color.Yellow;
+                pourcentcpu.ForeColor = Color.Black;
+            }
+            else if ((cpuUsage > 60) && (cpuUsage < 80))
+            {
+                pourcentcpu.BackColor = Color.Orange;
+                pourcentcpu.ForeColor = Color.Black;
+            }
+            else if ((cpuUsage > 80) && (cpuUsage < 90))
+            {
+                pourcentcpu.BackColor = Color.OrangeRed;
+                pourcentcpu.ForeColor = Color.White;
+            }
+            else if (cpuUsage > 90)
+            {
+                pourcentcpu.BackColor = Color.Red;
+                pourcentcpu.ForeColor = Color.White;
+            }
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label10_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
