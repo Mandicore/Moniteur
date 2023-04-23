@@ -52,6 +52,16 @@
             label10 = new Label();
             NameProcesseur = new Label();
             core = new Label();
+            label11 = new Label();
+            label12 = new Label();
+            NbGC = new Label();
+            label13 = new Label();
+            GPU1 = new Label();
+            GPU2 = new Label();
+            GPU2T = new Label();
+            GPU3T = new Label();
+            GPU3 = new Label();
+            Vram = new Label();
             SuspendLayout();
             // 
             // button1
@@ -275,12 +285,109 @@
             core.TextAlign = ContentAlignment.MiddleCenter;
             core.Click += label11_Click;
             // 
+            // label11
+            // 
+            label11.Font = new Font("Cambria", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label11.Location = new Point(1018, 154);
+            label11.Name = "label11";
+            label11.Size = new Size(298, 27);
+            label11.TabIndex = 24;
+            label11.Text = "Informations Système : ";
+            // 
+            // label12
+            // 
+            label12.Font = new Font("Cambria", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label12.Location = new Point(1018, 208);
+            label12.Name = "label12";
+            label12.Size = new Size(244, 23);
+            label12.TabIndex = 25;
+            label12.Text = "Information Graphique : ";
+            // 
+            // NbGC
+            // 
+            NbGC.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            NbGC.Location = new Point(1018, 256);
+            NbGC.Name = "NbGC";
+            NbGC.Size = new Size(298, 59);
+            NbGC.TabIndex = 26;
+            NbGC.Text = "label13";
+            NbGC.Click += label13_Click;
+            // 
+            // label13
+            // 
+            label13.Font = new Font("Verdana", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label13.Location = new Point(1018, 353);
+            label13.Name = "label13";
+            label13.Size = new Size(298, 23);
+            label13.TabIndex = 27;
+            label13.Text = "Carte Graphique 1 :";
+            // 
+            // GPU1
+            // 
+            GPU1.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            GPU1.Location = new Point(1018, 393);
+            GPU1.Name = "GPU1";
+            GPU1.Size = new Size(298, 23);
+            GPU1.TabIndex = 28;
+            GPU1.Text = "Carte Graphique 1";
+            // 
+            // GPU2
+            // 
+            GPU2.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            GPU2.Location = new Point(1018, 478);
+            GPU2.Name = "GPU2";
+            GPU2.Size = new Size(298, 23);
+            GPU2.TabIndex = 29;
+            // 
+            // GPU2T
+            // 
+            GPU2T.Font = new Font("Verdana", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            GPU2T.Location = new Point(1018, 438);
+            GPU2T.Name = "GPU2T";
+            GPU2T.Size = new Size(298, 23);
+            GPU2T.TabIndex = 30;
+            // 
+            // GPU3T
+            // 
+            GPU3T.Font = new Font("Verdana", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            GPU3T.Location = new Point(1018, 527);
+            GPU3T.Name = "GPU3T";
+            GPU3T.Size = new Size(298, 23);
+            GPU3T.TabIndex = 31;
+            // 
+            // GPU3
+            // 
+            GPU3.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            GPU3.Location = new Point(1018, 564);
+            GPU3.Name = "GPU3";
+            GPU3.Size = new Size(298, 23);
+            GPU3.TabIndex = 32;
+            // 
+            // Vram
+            // 
+            Vram.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            Vram.Location = new Point(1018, 315);
+            Vram.Name = "Vram";
+            Vram.Size = new Size(298, 31);
+            Vram.TabIndex = 33;
+            Vram.Text = "label13";
+            // 
             // Page2
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1364, 749);
+            Controls.Add(Vram);
+            Controls.Add(GPU3);
+            Controls.Add(GPU3T);
+            Controls.Add(GPU2T);
+            Controls.Add(GPU2);
+            Controls.Add(GPU1);
+            Controls.Add(label13);
+            Controls.Add(NbGC);
+            Controls.Add(label12);
+            Controls.Add(label11);
             Controls.Add(core);
             Controls.Add(NameProcesseur);
             Controls.Add(label10);
@@ -336,5 +443,15 @@
         private Label label10;
         private Label NameProcesseur;
         private Label core;
+        private Label label11;
+        private Label label12;
+        private Label NbGC;
+        private Label label13;
+        private Label GPU1;
+        private Label GPU2;
+        private Label GPU2T;
+        private Label GPU3T;
+        private Label GPU3;
+        private Label Vram;
     }
 }

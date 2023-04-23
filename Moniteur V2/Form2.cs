@@ -38,7 +38,28 @@ namespace Moniteur_V2
             timerCpu.Interval = 600; // mettez à jour l'utilisation du CPU toutes les 1 seconde
             timerCpu.Start();
             NameProcesseur.Text = InformationsCpu.CpuName();
-            core.Text = InformationsCpu.NbCores() + " | " + InformationsCpu.NbThreads(); 
+            core.Text = InformationsCpu.NbCores() + " | " + InformationsCpu.NbThreads();
+            string text = "Nombre de carte graphique : ";
+            if (InformationsGpu.GetGpuName().Count > 1)
+            {
+                text = "Nombre de cartes graphiques : ";
+            }
+            NbGC.Text = text + InformationsGpu.GetGpuName().Count.ToString();
+            GPU1.Text = InformationsGpu.GetGpuName()[0];
+            if (InformationsGpu.GetGpuName().Count == 2)
+            {
+                GPU2.Text = InformationsGpu.GetGpuName()[1];
+                GPU2T.Text = "Carte Graphique 2";
+            }
+            if (InformationsGpu.GetGpuName().Count == 3)
+            {
+                GPU2.Text = InformationsGpu.GetGpuName()[1];
+                GPU2T.Text = "Carte Graphique 2";
+                GPU3.Text = InformationsGpu.GetGpuName()[2];
+                GPU3T.Text = "Carte Graphique 3";
+
+            }
+            Vram.Text = "Vram de la carte graphique principal : " + InformationsGpu.GetVram()[0];
         }
 
         private void Form2_Load(object sender, EventArgs e)
@@ -47,8 +68,16 @@ namespace Moniteur_V2
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ProcessStartInfo startInfo = new ProcessStartInfo("cmd", "/c start https://www.intel.fr/content/www/fr/fr/products/sku/75048/intel-core-i54670k-processor-6m-cache-up-to-3-80-ghz/specifications.html");
-            Process.Start(startInfo);
+            if (InformationsCpu.CpuName().Contains("Intel"))
+            {
+                ProcessStartInfo startInfo = new ProcessStartInfo("cmd", "/c start https://www.intel.fr/content/www/fr/fr/products/details/processors.html");
+                Process.Start(startInfo);
+            }
+            else
+            {
+                ProcessStartInfo startInfo = new ProcessStartInfo("cmd", "/c start https://www.amd.com/fr.html");
+                Process.Start(startInfo);
+            }
 
         }
 
@@ -185,6 +214,11 @@ namespace Moniteur_V2
         }
 
         private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label13_Click(object sender, EventArgs e)
         {
 
         }
