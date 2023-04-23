@@ -28,12 +28,36 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "Erreur";
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Erreur));
+            label1 = new Label();
+            SuspendLayout();
+            // 
+            // label1
+            // 
+            label1.ForeColor = Color.Red;
+            label1.Location = new Point(12, 31);
+            label1.Name = "label1";
+            label1.Size = new Size(186, 74);
+            label1.TabIndex = 0;
+            label1.Text = "ERREUR : Impossible de vous redirigez vers les paramètres windows !";
+            label1.TextAlign = ContentAlignment.MiddleCenter;
+            label1.Click += label1_Click;
+            // 
+            // Erreur
+            // 
+            AutoScaleDimensions = new SizeF(8F, 14F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(210, 150);
+            Controls.Add(label1);
+            Font = new Font("Verdana", 9F, FontStyle.Regular, GraphicsUnit.Point);
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            Name = "Erreur";
+            Text = "Erreur";
+            ResumeLayout(false);
         }
 
         #endregion
+
+        private Label label1;
     }
 }
