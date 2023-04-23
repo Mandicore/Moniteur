@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
+using System.Diagnostics.Metrics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,7 @@ namespace Moniteur_V2
     public partial class Page2 : Form
     {
         private PerformanceCounter _ramCounter;
+        private PerformanceCounter cpuCounter;
         public Page2()
         {
             InitializeComponent();
@@ -30,8 +32,11 @@ namespace Moniteur_V2
             {
                 disk = "disques ";
             }
-            nbdisk.Text = "Nombre de "  + disk + Disk.GetDiskCount() + " Disques";
-
+            nbdisk.Text = "Nombre de " + disk + Disk.GetDiskCount() + " Disques";
+            Totalstorage.Text = "Capacitée Max : " + Disk.GetDiskCapacity() + " Go";
+            cpuCounter = new PerformanceCounter("Processor", "% Processor Time", "_Total");
+            timerCpu.Interval = 250; // mettez à jour l'utilisation du CPU toutes les 1 seconde
+            timerCpu.Start();
         }
 
         private void Form2_Load(object sender, EventArgs e)
@@ -112,6 +117,27 @@ namespace Moniteur_V2
         private void nbdisk_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Totalstorage_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void timerCpu_Tick(object sender, EventArgs e)
+        {
+            float cpuUsage = cpuCounter.NextValue();
+            pourcentcpu.Text = $"{cpuUsage:F1}%";
         }
     }
 }

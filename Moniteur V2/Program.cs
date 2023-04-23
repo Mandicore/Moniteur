@@ -222,21 +222,22 @@ namespace Moniteur_V2
 
             return count;
         }
-        public static string GetDiskCapacity()
+        public static float GetDiskCapacity()
         {
             DriveInfo[] allDrives = DriveInfo.GetDrives();
-            int allDrivesCapacity = 0;
+            float allDrivesCapacity = 0;
             foreach (DriveInfo drive in allDrives)
             {
                 if (drive.IsReady)
                 {
-                    allDrivesCapacity = drive.TotalSize / (1024 * 1024 * 1024);
+                    allDrivesCapacity = allDrivesCapacity + drive.TotalSize / (1024 * 1024 * 1024);
                 }
                 else
                 {
-                    Console.WriteLine($"Drive {drive.Name} is not ready.");
+                    allDrivesCapacity = allDrivesCapacity;
                 }
             }
+            return allDrivesCapacity;
         }
     }
 }

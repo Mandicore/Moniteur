@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Page2));
             button1 = new Button();
-            Title = new Label();
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
@@ -43,11 +43,18 @@
             RamI = new Label();
             label7 = new Label();
             nbdisk = new Label();
+            Totalstorage = new Label();
+            label8 = new Label();
+            Title = new Label();
+            label9 = new Label();
+            label10 = new Label();
+            pourcentcpu = new Label();
+            timerCpu = new System.Windows.Forms.Timer(components);
             SuspendLayout();
             // 
             // button1
             // 
-            button1.Location = new Point(626, 488);
+            button1.Location = new Point(586, 659);
             button1.Name = "button1";
             button1.Size = new Size(106, 44);
             button1.TabIndex = 0;
@@ -55,26 +62,13 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click;
             // 
-            // Title
-            // 
-            Title.BackColor = Color.Transparent;
-            Title.Font = new Font("Verdana", 36F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            Title.ForeColor = Color.FromArgb(128, 128, 255);
-            Title.Location = new Point(12, 9);
-            Title.Name = "Title";
-            Title.Size = new Size(1340, 59);
-            Title.TabIndex = 1;
-            Title.Text = "Moniteur d'activités";
-            Title.TextAlign = ContentAlignment.MiddleCenter;
-            Title.Click += label1_Click;
-            // 
             // label1
             // 
             label1.BorderStyle = BorderStyle.FixedSingle;
             label1.ForeColor = Color.Transparent;
-            label1.Location = new Point(12, 112);
+            label1.Location = new Point(12, 145);
             label1.Name = "label1";
-            label1.Size = new Size(331, 560);
+            label1.Size = new Size(331, 527);
             label1.TabIndex = 2;
             label1.TextAlign = ContentAlignment.TopCenter;
             // 
@@ -82,16 +76,16 @@
             // 
             label2.BorderStyle = BorderStyle.FixedSingle;
             label2.ForeColor = Color.Transparent;
-            label2.Location = new Point(1021, 112);
+            label2.Location = new Point(1005, 145);
             label2.Name = "label2";
-            label2.Size = new Size(331, 560);
+            label2.Size = new Size(331, 527);
             label2.TabIndex = 3;
             label2.TextAlign = ContentAlignment.TopCenter;
             // 
             // label3
             // 
-            label3.Font = new Font("Cambria", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.Location = new Point(23, 126);
+            label3.Font = new Font("Cambria", 15.75F, FontStyle.Bold, GraphicsUnit.Point);
+            label3.Location = new Point(23, 154);
             label3.Name = "label3";
             label3.Size = new Size(298, 27);
             label3.TabIndex = 4;
@@ -100,7 +94,7 @@
             // ComputerName
             // 
             ComputerName.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            ComputerName.Location = new Point(23, 201);
+            ComputerName.Location = new Point(23, 231);
             ComputerName.Name = "ComputerName";
             ComputerName.Size = new Size(298, 48);
             ComputerName.TabIndex = 5;
@@ -121,7 +115,7 @@
             // OsVersion
             // 
             OsVersion.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            OsVersion.Location = new Point(23, 282);
+            OsVersion.Location = new Point(23, 325);
             OsVersion.Name = "OsVersion";
             OsVersion.Size = new Size(298, 51);
             OsVersion.TabIndex = 7;
@@ -130,27 +124,28 @@
             // 
             // label4
             // 
-            label4.Font = new Font("Cambria", 14.25F, FontStyle.Italic, GraphicsUnit.Point);
-            label4.Location = new Point(23, 178);
+            label4.Font = new Font("Cambria", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.Location = new Point(23, 194);
             label4.Name = "label4";
-            label4.Size = new Size(173, 23);
+            label4.Size = new Size(202, 23);
             label4.TabIndex = 8;
             label4.Text = "Nom de la machine :";
             label4.Click += label4_Click;
             // 
             // label5
             // 
-            label5.Font = new Font("Cambria", 14.25F, FontStyle.Italic, GraphicsUnit.Point);
-            label5.Location = new Point(23, 259);
+            label5.Font = new Font("Cambria", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label5.Location = new Point(23, 292);
             label5.Name = "label5";
             label5.Size = new Size(173, 23);
             label5.TabIndex = 9;
             label5.Text = "Version de l'Os :";
+            label5.Click += label5_Click;
             // 
             // label6
             // 
-            label6.Font = new Font("Cambria", 14.25F, FontStyle.Italic, GraphicsUnit.Point);
-            label6.Location = new Point(23, 343);
+            label6.Font = new Font("Cambria", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label6.Location = new Point(23, 393);
             label6.Name = "label6";
             label6.Size = new Size(173, 23);
             label6.TabIndex = 10;
@@ -160,7 +155,7 @@
             // 
             RamI.AutoSize = true;
             RamI.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            RamI.Location = new Point(23, 378);
+            RamI.Location = new Point(23, 426);
             RamI.Name = "RamI";
             RamI.Size = new Size(58, 18);
             RamI.TabIndex = 11;
@@ -169,8 +164,9 @@
             // 
             // label7
             // 
-            label7.Font = new Font("Cambria", 14.25F, FontStyle.Italic, GraphicsUnit.Point);
-            label7.Location = new Point(23, 447);
+            label7.Font = new Font("Cambria", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            label7.ForeColor = Color.Black;
+            label7.Location = new Point(23, 478);
             label7.Name = "label7";
             label7.Size = new Size(173, 23);
             label7.TabIndex = 12;
@@ -180,19 +176,88 @@
             // nbdisk
             // 
             nbdisk.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            nbdisk.Location = new Point(23, 500);
+            nbdisk.Location = new Point(23, 509);
             nbdisk.Name = "nbdisk";
             nbdisk.Size = new Size(298, 23);
             nbdisk.TabIndex = 13;
             nbdisk.Text = "label8";
             nbdisk.Click += nbdisk_Click;
             // 
+            // Totalstorage
+            // 
+            Totalstorage.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            Totalstorage.Location = new Point(23, 544);
+            Totalstorage.Name = "Totalstorage";
+            Totalstorage.Size = new Size(298, 23);
+            Totalstorage.TabIndex = 14;
+            Totalstorage.Text = "label8";
+            Totalstorage.Click += Totalstorage_Click;
+            // 
+            // label8
+            // 
+            label8.Font = new Font("Verdana", 9F, FontStyle.Italic, GraphicsUnit.Point);
+            label8.Location = new Point(39, 567);
+            label8.Name = "label8";
+            label8.Size = new Size(282, 23);
+            label8.TabIndex = 15;
+            label8.Text = "* Addition capacitée de tous les disques ";
+            // 
+            // Title
+            // 
+            Title.BackColor = Color.FromArgb(128, 128, 255);
+            Title.Font = new Font("Verdana", 36F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            Title.ForeColor = Color.White;
+            Title.Location = new Point(12, 26);
+            Title.Name = "Title";
+            Title.Size = new Size(1340, 59);
+            Title.TabIndex = 1;
+            Title.Text = "Moniteur d'activités";
+            Title.TextAlign = ContentAlignment.MiddleCenter;
+            Title.Click += label1_Click;
+            // 
+            // label9
+            // 
+            label9.Image = (Image)resources.GetObject("label9.Image");
+            label9.Location = new Point(458, 217);
+            label9.Name = "label9";
+            label9.Size = new Size(417, 350);
+            label9.TabIndex = 16;
+            // 
+            // label10
+            // 
+            label10.BackColor = Color.Transparent;
+            label10.Image = (Image)resources.GetObject("label10.Image");
+            label10.Location = new Point(551, 365);
+            label10.Name = "label10";
+            label10.Size = new Size(165, 136);
+            label10.TabIndex = 17;
+            // 
+            // pourcentcpu
+            // 
+            pourcentcpu.BackColor = Color.FromArgb(128, 128, 255);
+            pourcentcpu.Font = new Font("Verdana", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
+            pourcentcpu.ForeColor = Color.White;
+            pourcentcpu.Location = new Point(569, 551);
+            pourcentcpu.Name = "pourcentcpu";
+            pourcentcpu.Size = new Size(180, 39);
+            pourcentcpu.TabIndex = 18;
+            pourcentcpu.TextAlign = ContentAlignment.MiddleCenter;
+            // 
+            // timerCpu
+            // 
+            timerCpu.Tick += timerCpu_Tick;
+            // 
             // Page2
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(64, 64, 64);
+            BackColor = Color.White;
             ClientSize = new Size(1364, 749);
+            Controls.Add(pourcentcpu);
+            Controls.Add(label10);
+            Controls.Add(label9);
+            Controls.Add(label8);
+            Controls.Add(Totalstorage);
             Controls.Add(nbdisk);
             Controls.Add(label7);
             Controls.Add(RamI);
@@ -220,7 +285,6 @@
         #endregion
 
         private Button button1;
-        private Label Title;
         private Label label1;
         private Label label2;
         private Label label3;
@@ -233,5 +297,12 @@
         private Label RamI;
         private Label label7;
         private Label nbdisk;
+        private Label Totalstorage;
+        private Label label8;
+        private Label Title;
+        private Label label9;
+        private Label label10;
+        private Label pourcentcpu;
+        private System.Windows.Forms.Timer timerCpu;
     }
 }
