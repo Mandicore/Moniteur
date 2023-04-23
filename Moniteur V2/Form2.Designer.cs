@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Page2));
             button1 = new Button();
             Title = new Label();
@@ -42,8 +41,8 @@
             label5 = new Label();
             label6 = new Label();
             RamI = new Label();
-            timerRam = new System.Windows.Forms.Timer(components);
-            RamUse = new Label();
+            label7 = new Label();
+            nbdisk = new Label();
             SuspendLayout();
             // 
             // button1
@@ -168,19 +167,25 @@
             RamI.Text = "label7";
             RamI.Click += RamI_Click;
             // 
-            // timerRam
+            // label7
             // 
-            timerRam.Tick += timerRam_Tick;
+            label7.Font = new Font("Cambria", 14.25F, FontStyle.Italic, GraphicsUnit.Point);
+            label7.Location = new Point(23, 447);
+            label7.Name = "label7";
+            label7.Size = new Size(173, 23);
+            label7.TabIndex = 12;
+            label7.Text = "Stockage :";
+            label7.Click += label7_Click;
             // 
-            // RamUse
+            // nbdisk
             // 
-            RamUse.AutoSize = true;
-            RamUse.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            RamUse.Location = new Point(23, 442);
-            RamUse.Name = "RamUse";
-            RamUse.Size = new Size(58, 18);
-            RamUse.TabIndex = 12;
-            RamUse.Text = "label7";
+            nbdisk.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            nbdisk.Location = new Point(23, 500);
+            nbdisk.Name = "nbdisk";
+            nbdisk.Size = new Size(298, 23);
+            nbdisk.TabIndex = 13;
+            nbdisk.Text = "label8";
+            nbdisk.Click += nbdisk_Click;
             // 
             // Page2
             // 
@@ -188,7 +193,8 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(64, 64, 64);
             ClientSize = new Size(1364, 749);
-            Controls.Add(RamUse);
+            Controls.Add(nbdisk);
+            Controls.Add(label7);
             Controls.Add(RamI);
             Controls.Add(label6);
             Controls.Add(label5);
@@ -225,7 +231,7 @@
         private Label label5;
         private Label label6;
         private Label RamI;
-        private System.Windows.Forms.Timer timerRam;
-        private Label RamUse;
+        private Label label7;
+        private Label nbdisk;
     }
 }

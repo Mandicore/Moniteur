@@ -25,7 +25,12 @@ namespace Moniteur_V2
             OsVersion.Text = Os.GetOsInfos("os") + " , " + Os.GetOsInfos("arch");
             string RamGo = GetRamInfos.getRam() + " Go";
             RamI.Text = RamGo;
-
+            string disk = "disque ";
+            if (Disk.GetDiskCount() > 1)
+            {
+                disk = "disques ";
+            }
+            nbdisk.Text = "Nombre de "  + disk + Disk.GetDiskCount() + " Disques";
 
         }
 
@@ -97,6 +102,16 @@ namespace Moniteur_V2
 
         private void timerRam_Tick(object sender, EventArgs e)
         {
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void nbdisk_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

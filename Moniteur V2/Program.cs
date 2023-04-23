@@ -208,4 +208,35 @@ namespace Moniteur_V2
             return totalMemoryMB / 1000;
         }
     }
+    public class Disk
+    {
+        public static int GetDiskCount()
+        {
+            int count = 0;
+            ManagementObjectSearcher searcher = new ManagementObjectSearcher("SELECT * FROM Win32_LogicalDisk");
+
+            foreach (ManagementObject drive in searcher.Get())
+            {
+                count++;
+            }
+
+            return count;
+        }
+        public static string GetDiskCapacity()
+        {
+            DriveInfo[] allDrives = DriveInfo.GetDrives();
+            int allDrivesCapacity = 0;
+            foreach (DriveInfo drive in allDrives)
+            {
+                if (drive.IsReady)
+                {
+                    allDrivesCapacity = drive.TotalSize / (1024 * 1024 * 1024);
+                }
+                else
+                {
+                    Console.WriteLine($"Drive {drive.Name} is not ready.");
+                }
+            }
+        }
+    }
 }
