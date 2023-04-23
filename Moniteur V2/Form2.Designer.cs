@@ -317,16 +317,17 @@
             // label13
             // 
             label13.Font = new Font("Verdana", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label13.Location = new Point(1018, 353);
+            label13.Location = new Point(1018, 373);
             label13.Name = "label13";
             label13.Size = new Size(298, 23);
             label13.TabIndex = 27;
             label13.Text = "Carte Graphique 1 :";
+            label13.Click += label13_Click_1;
             // 
             // GPU1
             // 
             GPU1.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            GPU1.Location = new Point(1018, 393);
+            GPU1.Location = new Point(1018, 406);
             GPU1.Name = "GPU1";
             GPU1.Size = new Size(298, 23);
             GPU1.TabIndex = 28;
@@ -369,7 +370,7 @@
             Vram.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
             Vram.Location = new Point(1018, 315);
             Vram.Name = "Vram";
-            Vram.Size = new Size(298, 31);
+            Vram.Size = new Size(298, 58);
             Vram.TabIndex = 33;
             Vram.Text = "label13";
             // 

@@ -222,5 +222,10 @@ namespace Moniteur_V2
         {
 
         }
+
+        private void label13_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
