@@ -66,12 +66,13 @@
             // 
             // button1
             // 
-            button1.Location = new Point(586, 659);
+            button1.BackColor = Color.DarkGray;
+            button1.Location = new Point(614, 641);
             button1.Name = "button1";
             button1.Size = new Size(106, 44);
             button1.TabIndex = 0;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
+            button1.Text = "Plus d'information";
+            button1.UseVisualStyleBackColor = false;
             button1.Click += button1_Click;
             // 
             // label1
