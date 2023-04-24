@@ -62,6 +62,7 @@
             GPU3T = new Label();
             GPU3 = new Label();
             Vram = new Label();
+            button3 = new Button();
             SuspendLayout();
             // 
             // button1
@@ -374,12 +375,23 @@
             Vram.TabIndex = 33;
             Vram.Text = "label13";
             // 
+            // button3
+            // 
+            button3.Location = new Point(372, 459);
+            button3.Name = "button3";
+            button3.Size = new Size(75, 23);
+            button3.TabIndex = 34;
+            button3.Text = "button3";
+            button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click_1;
+            // 
             // Page2
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1364, 749);
+            Controls.Add(button3);
             Controls.Add(Vram);
             Controls.Add(GPU3);
             Controls.Add(GPU3T);
@@ -455,5 +467,6 @@
         private Label GPU3T;
         private Label GPU3;
         private Label Vram;
+        private Button button3;
     }
 }

@@ -1,17 +1,17 @@
 using System.Management;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using System.IO;
+using System.Diagnostics;
+
 
 namespace Moniteur_V2
 {
     internal static class Program
     {
-        /// <summary>
-        ///  The main entry point for the application.
-        /// </summary>
         [STAThread]
         static void Main()
         {
-            // To customize application configuration such as set high DPI settings or default font,
-            // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             Application.Run(new Form1());
         }
@@ -156,21 +156,6 @@ namespace Moniteur_V2
                 return new List<string>{ "ERREUR" };
             }
         }
-        /*public static List<float> GetMaxClockSpeed()
-        {
-            var maxClockSpeeds = new List<float>();
-            using (ManagementObjectSearcher searcher = new ManagementObjectSearcher("SELECT MaxClockSpeed FROM Win32_VideoController"))
-            {
-                foreach (ManagementObject obj in searcher.Get())
-                {
-                    float maxClockSpeed = (float)obj["MaxClockSpeed"];
-                    maxClockSpeed = maxClockSpeed / 1000; 
-                    maxClockSpeeds.Add(maxClockSpeed);
-                }
-                return maxClockSpeeds; 
-            }
-
-        }*/
     }
     public class Os
     {
@@ -240,4 +225,29 @@ namespace Moniteur_V2
             return allDrivesCapacity;
         }
     }
+    public class Pdf
+    {
+        public static void CreateNewPdf()
+        {
+
+            string downloadFolderPath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile) + "\\Downloads";
+            string pdfFilePath = Path.Combine(downloadFolderPath, "InformationsMachine.pdf");
+
+            Document document = new Document();
+            PdfWriter writer = PdfWriter.GetInstance(document, new FileStream(pdfFilePath, FileMode.Create));
+            document.Open();
+            Paragraph paragraph = new Paragraph("Bonjour, ceci est un exemple de document PDF créé en C# !");
+            document.Add(paragraph);
+            document.Close();
+
+            ProcessStartInfo startInfo = new ProcessStartInfo(pdfFilePath)
+            {
+                UseShellExecute = true,
+                Verb = "open"
+            };
+            Process.Start(startInfo);
+            
+
+        }
+        }
 }

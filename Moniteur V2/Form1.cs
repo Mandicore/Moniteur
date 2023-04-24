@@ -1,5 +1,4 @@
 using System.Diagnostics;
-using System.Management;
 
 namespace Moniteur_V2
 {

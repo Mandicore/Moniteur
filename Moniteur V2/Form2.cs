@@ -1,28 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Diagnostics;
-using System.Diagnostics.Metrics;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+﻿using System.Diagnostics;
+
 
 namespace Moniteur_V2
 {
     public partial class Page2 : Form
     {
-        private PerformanceCounter _ramCounter;
         private PerformanceCounter cpuCounter;
         public Page2()
         {
             InitializeComponent();
-            this.WindowState = FormWindowState.Maximized; // maximise la fenêtre pour qu'elle prenne toute la place de l'écran
-            this.FormBorderStyle = FormBorderStyle.Sizable; // définit la bordure de la fenêtre à une bordure redimensionnable
-
+            this.WindowState = FormWindowState.Maximized;
+            this.FormBorderStyle = FormBorderStyle.Sizable;
             ComputerName.Text = Informations.ComputerName();
             OsVersion.Text = Os.GetOsInfos("os") + " , " + Os.GetOsInfos("arch");
             string RamGo = GetRamInfos.getRam() + " Go";
@@ -35,7 +23,7 @@ namespace Moniteur_V2
             nbdisk.Text = "Nombre de " + disk + Disk.GetDiskCount() + " Disques";
             Totalstorage.Text = "Capacitée Max : " + Disk.GetDiskCapacity() + " Go";
             cpuCounter = new PerformanceCounter("Processor", "% Processor Time", "_Total");
-            timerCpu.Interval = 600; // mettez à jour l'utilisation du CPU toutes les 1 seconde
+            timerCpu.Interval = 600;
             timerCpu.Start();
             NameProcesseur.Text = InformationsCpu.CpuName();
             core.Text = InformationsCpu.NbCores() + " | " + InformationsCpu.NbThreads();
@@ -61,14 +49,13 @@ namespace Moniteur_V2
             }
             Vram.Text = "Vram de la carte graphique principal : " + InformationsGpu.GetVram()[0];
         }
-
         private void Form2_Load(object sender, EventArgs e)
         {
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (InformationsCpu.CpuName().Contains("Intel"))
+            if (InformationsCpu.CpuName().ToLower().Contains("intel"))
             {
                 ProcessStartInfo startInfo = new ProcessStartInfo("cmd", "/c start https://www.intel.fr/content/www/fr/fr/products/details/processors.html");
                 Process.Start(startInfo);
@@ -226,6 +213,11 @@ namespace Moniteur_V2
         private void label13_Click_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            Pdf.CreateNewPdf();
         }
     }
 }
