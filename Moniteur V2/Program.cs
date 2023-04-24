@@ -3,7 +3,8 @@ using iTextSharp.text;
 using iTextSharp.text.pdf;
 using System.IO;
 using System.Diagnostics;
-
+using Microsoft.Win32;
+using System.Text.RegularExpressions;
 
 namespace Moniteur_V2
 {
@@ -31,10 +32,34 @@ namespace Moniteur_V2
             }
 
         }
-        public static string AppName() 
+        public static string AppName()
         {
             string appName = "Moniteur d'activités";
             return appName;
+        }
+        public static string GetComputerType()
+        {
+            ManagementClass mc = new ManagementClass("Win32_ComputerSystem");
+
+            int format = 0;
+            foreach (ManagementObject mo in mc.GetInstances())
+            {
+                format = (ushort)mo["PCSystemType"];
+                break;
+            }
+
+            if (format == 2)
+            {
+                return "Laptop (Ordinateur Portable)";
+            }
+            else if (format == 3)
+            {
+                return "Desktop (Ordinateur de Bureau)";
+            }
+            else
+            {
+                return " ";
+            }
         }
     }
     public class InformationsCpu
@@ -234,10 +259,57 @@ namespace Moniteur_V2
             string pdfFilePath = Path.Combine(downloadFolderPath, "InformationsMachine.pdf");
 
             Document document = new Document();
+
+            //Def Fonts
+            iTextSharp.text.Font titleFont = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 22, iTextSharp.text.Font.BOLD, BaseColor.BLACK);
+            iTextSharp.text.Font secondTitleFont = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 14, iTextSharp.text.Font.BOLD, BaseColor.BLACK);
+            iTextSharp.text.Font informationsFont = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 12, iTextSharp.text.Font.BOLD, BaseColor.GRAY);
+
+            //Add text
             PdfWriter writer = PdfWriter.GetInstance(document, new FileStream(pdfFilePath, FileMode.Create));
             document.Open();
-            Paragraph paragraph = new Paragraph("Bonjour, ceci est un exemple de document PDF créé en C# !");
-            document.Add(paragraph);
+            Paragraph title = new Paragraph("Informations sur votre ordinateur", titleFont);
+            title.Alignment = Element.ALIGN_CENTER;
+            title.SpacingAfter = 50f;
+            document.Add(title);
+
+            Paragraph SecondTitle1 = new Paragraph("Information sur votre Processeur (CPU*):", secondTitleFont);
+            SecondTitle1.SpacingAfter = 10f;
+            document.Add(SecondTitle1);
+
+            Paragraph infoCpu1 = new Paragraph("- " + InformationsCpu.CpuName(), informationsFont);
+            infoCpu1.SpacingAfter = 5f;
+            document.Add(infoCpu1);
+
+            Paragraph infoCpu2 = new Paragraph("- " + InformationsCpu.NbCores(), informationsFont);
+            infoCpu2.SpacingAfter = 5f;
+            document.Add(infoCpu2);
+
+            Paragraph infoCpu3 = new Paragraph("- " + InformationsCpu.NbThreads(), informationsFont);
+            infoCpu3.SpacingAfter = 5f;
+            document.Add(infoCpu3);
+
+            Paragraph SecondTitle2 = new Paragraph("Information sur votre Carte Graphique (GPU/APU*):", secondTitleFont);
+            SecondTitle2.SpacingAfter = 10f;
+            document.Add(SecondTitle2);
+
+            Paragraph infoGpu1 = new Paragraph("- " + InformationsGpu.GetGpuName()[0], informationsFont);
+            infoGpu1.SpacingAfter = 5f;
+            document.Add(infoGpu1);
+
+            if (InformationsGpu.GetGpuName().Count == 2)
+            {
+                Paragraph infoGpu2 = new Paragraph("- " + InformationsGpu.GetGpuName()[1], informationsFont);
+                infoGpu2.SpacingAfter = 5f;
+                document.Add(infoGpu2);
+            }
+            if (InformationsGpu.GetGpuName().Count == 3)
+            {
+                Paragraph infoGpu3 = new Paragraph("- " + InformationsGpu.GetGpuName()[2], informationsFont);
+                infoGpu3.SpacingAfter = 5f;
+                document.Add(infoGpu3);
+            }
+
             document.Close();
 
             ProcessStartInfo startInfo = new ProcessStartInfo(pdfFilePath)
@@ -249,5 +321,5 @@ namespace Moniteur_V2
             
 
         }
-        }
+    }
 }

@@ -63,6 +63,7 @@
             GPU3 = new Label();
             Vram = new Label();
             button3 = new Button();
+            Type = new Label();
             SuspendLayout();
             // 
             // button1
@@ -385,12 +386,24 @@
             button3.UseVisualStyleBackColor = true;
             button3.Click += button3_Click_1;
             // 
+            // Type
+            // 
+            Type.BackColor = Color.FromArgb(128, 128, 255);
+            Type.Font = new Font("Verdana", 11.25F, FontStyle.Italic, GraphicsUnit.Point);
+            Type.ForeColor = Color.White;
+            Type.Location = new Point(23, 58);
+            Type.Name = "Type";
+            Type.Size = new Size(351, 20);
+            Type.TabIndex = 35;
+            Type.Click += Type_Click;
+            // 
             // Page2
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
             ClientSize = new Size(1364, 749);
+            Controls.Add(Type);
             Controls.Add(button3);
             Controls.Add(Vram);
             Controls.Add(GPU3);
@@ -468,5 +481,6 @@
         private Label GPU3;
         private Label Vram;
         private Button button3;
+        private Label Type;
     }
 }
