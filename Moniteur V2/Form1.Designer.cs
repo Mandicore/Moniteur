@@ -203,7 +203,7 @@
             credit.Name = "credit";
             credit.Size = new Size(890, 31);
             credit.TabIndex = 16;
-            credit.Text = "Créer par FIGUEIRAS Jossua en 2023";
+            credit.Text = "Créé par FIGUEIRAS Jossua en 2023";
             credit.TextAlign = ContentAlignment.MiddleRight;
             credit.Click += credit_Click;
             // 
