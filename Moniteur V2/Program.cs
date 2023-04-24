@@ -297,17 +297,29 @@ namespace Moniteur_V2
             infoGpu1.SpacingAfter = 5f;
             document.Add(infoGpu1);
 
+            Paragraph infoGpu4 = new Paragraph("- Vram : " + InformationsGpu.GetVram()[0], informationsFont);
+            infoGpu4.SpacingAfter = 5f;
+            document.Add(infoGpu4);
+
             if (InformationsGpu.GetGpuName().Count == 2)
             {
                 Paragraph infoGpu2 = new Paragraph("- " + InformationsGpu.GetGpuName()[1], informationsFont);
                 infoGpu2.SpacingAfter = 5f;
                 document.Add(infoGpu2);
+
+                Paragraph infoGpu5 = new Paragraph("- Vram : " + InformationsGpu.GetVram()[1], informationsFont);
+                infoGpu5.SpacingAfter = 5f;
+                document.Add(infoGpu5);
             }
             if (InformationsGpu.GetGpuName().Count == 3)
             {
-                Paragraph infoGpu3 = new Paragraph("- " + InformationsGpu.GetGpuName()[2], informationsFont);
+                Paragraph infoGpu3 = new Paragraph("- Vram : " + InformationsGpu.GetGpuName()[2], informationsFont);
                 infoGpu3.SpacingAfter = 5f;
                 document.Add(infoGpu3);
+
+                Paragraph infoGpu6 = new Paragraph("- Vram : " + InformationsGpu.GetVram()[2], informationsFont);
+                infoGpu6.SpacingAfter = 5f;
+                document.Add(infoGpu6);
             }
 
             document.Close();
