@@ -361,6 +361,10 @@ namespace Moniteur_V2
             infoStockage1.SpacingAfter = 5f;
             document.Add(infoStockage1);
 
+            Paragraph infoStockage2 = new Paragraph("- Nombre de disques (clef usb comprise) : " + Disk.GetDiskCount() + " Go", informationsFont);
+            infoStockage2.SpacingAfter = 5f;
+            document.Add(infoStockage2);
+
             document.Close();
 
             ProcessStartInfo startInfo = new ProcessStartInfo(pdfFilePath)
