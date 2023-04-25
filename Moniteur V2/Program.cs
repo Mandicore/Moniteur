@@ -345,13 +345,21 @@ namespace Moniteur_V2
                 document.Add(infoGpu6);
             }
 
-            Paragraph edxplainGpu1 = new Paragraph("* GPU : Graphics Processing Unit (carte graphique dédiée)", explainFont);
-            edxplainGpu1.SpacingAfter = 5f;
-            document.Add(edxplainGpu1);
+            Paragraph explainGpu1 = new Paragraph("* GPU : Graphics Processing Unit (carte graphique dédiée)", explainFont);
+            explainGpu1.SpacingAfter = 5f;
+            document.Add(explainGpu1);
 
-            Paragraph edxplainGpu2 = new Paragraph("* APU : Accelerated Processing Unit (GPU intégré au CPU (processeur))", explainFont);
-            edxplainGpu2.SpacingAfter = 5f;
-            document.Add(edxplainGpu2);
+            Paragraph explainGpu2 = new Paragraph("* APU : Accelerated Processing Unit (GPU intégré au CPU (processeur))", explainFont);
+            explainGpu2.SpacingAfter = 5f;
+            document.Add(explainGpu2);
+
+            Paragraph SecondTitle4 = new Paragraph("Stockage : ", secondTitleFont);
+            SecondTitle4.SpacingAfter = 10f;
+            document.Add(SecondTitle4);
+
+            Paragraph infoStockage1 = new Paragraph("- Ram installée : " + GetRamInfos.getRam() + " Go", informationsFont);
+            infoStockage1.SpacingAfter = 5f;
+            document.Add(infoStockage1);
 
             document.Close();
 
