@@ -1,4 +1,4 @@
-# App Moniteur coder en C# et Windows-Form avec pour but de vous donnez des informations sur votre ordinateur.
+# App Moniteur codé en C# et Windows-Form avec pour but de vous donnez des informations sur votre ordinateur.
 Cette version peut encore évoluer, donc n'hésitez pas à me faire un retour !
 # App Monitor code in C# and Windows-Form with the aim of giving you information about your computer.
 This version can still evolve, so you can give me feedback!
