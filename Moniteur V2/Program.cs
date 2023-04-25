@@ -263,7 +263,8 @@ namespace Moniteur_V2
             //Def Fonts
             iTextSharp.text.Font titleFont = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 22, iTextSharp.text.Font.BOLD, BaseColor.BLACK);
             iTextSharp.text.Font secondTitleFont = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 14, iTextSharp.text.Font.BOLD, BaseColor.BLACK);
-            iTextSharp.text.Font informationsFont = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 12, iTextSharp.text.Font.BOLD, BaseColor.GRAY);
+            iTextSharp.text.Font informationsFont = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 12, iTextSharp.text.Font.NORMAL, BaseColor.GRAY);
+            iTextSharp.text.Font explainFont = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 10, iTextSharp.text.Font.NORMAL, BaseColor.GRAY);
 
             //Add text
             PdfWriter writer = PdfWriter.GetInstance(document, new FileStream(pdfFilePath, FileMode.Create));
@@ -272,6 +273,22 @@ namespace Moniteur_V2
             title.Alignment = Element.ALIGN_CENTER;
             title.SpacingAfter = 50f;
             document.Add(title);
+
+            Paragraph SecondTitle3 = new Paragraph("Information sur votre Système :", secondTitleFont);
+            SecondTitle3.SpacingAfter = 10f;
+            document.Add(SecondTitle3);
+
+            Paragraph infoInfos1 = new Paragraph("- Version de windows : "  + Os.GetOsInfos("os") + " , " + Os.GetOsInfos("arch"), informationsFont);
+            infoInfos1.SpacingAfter = 5f;
+            document.Add(infoInfos1);
+
+            Paragraph infoInfos2 = new Paragraph("- Nom de votre Ordinateur * : " + Informations.ComputerName(), informationsFont);
+            infoInfos2.SpacingAfter = 5f;
+            document.Add(infoInfos2);
+
+            Paragraph explainInfo1 = new Paragraph("* Le nom de votre machine est disponible dans paramètres de windows/Système/à propos ou en cliquant sur le bouton Acceder aux paramètres de windows dans la fenêtre plus d'informations de l'application", explainFont);
+            explainInfo1.SpacingAfter = 5f;
+            document.Add(explainInfo1);
 
             Paragraph SecondTitle1 = new Paragraph("Information sur votre Processeur (CPU*):", secondTitleFont);
             SecondTitle1.SpacingAfter = 10f;
@@ -289,7 +306,13 @@ namespace Moniteur_V2
             infoCpu3.SpacingAfter = 5f;
             document.Add(infoCpu3);
 
-            Paragraph SecondTitle2 = new Paragraph("Information sur votre Carte Graphique (GPU/APU*):", secondTitleFont);
+            Paragraph edxplainCpu1 = new Paragraph("* CPU : Central Proccessing Unit", explainFont);
+            edxplainCpu1.SpacingAfter = 5f;
+            document.Add(edxplainCpu1);
+
+            string GraphicsTitle = TitleGpu();
+
+            Paragraph SecondTitle2 = new Paragraph(GraphicsTitle, secondTitleFont);
             SecondTitle2.SpacingAfter = 10f;
             document.Add(SecondTitle2);
 
@@ -322,6 +345,14 @@ namespace Moniteur_V2
                 document.Add(infoGpu6);
             }
 
+            Paragraph edxplainGpu1 = new Paragraph("* GPU : Graphics Processing Unit (carte graphique dédiée)", explainFont);
+            edxplainGpu1.SpacingAfter = 5f;
+            document.Add(edxplainGpu1);
+
+            Paragraph edxplainGpu2 = new Paragraph("* APU : Accelerated Processing Unit (GPU intégré au CPU (processeur))", explainFont);
+            edxplainGpu2.SpacingAfter = 5f;
+            document.Add(edxplainGpu2);
+
             document.Close();
 
             ProcessStartInfo startInfo = new ProcessStartInfo(pdfFilePath)
@@ -333,5 +364,15 @@ namespace Moniteur_V2
             
 
         }
+        public static string TitleGpu()
+        {
+            string GraphicsTitle = "Information sur votre Carte Graphique (GPU/APU*)";
+
+            if (InformationsGpu.GetGpuName().Count < 1)
+            {
+                GraphicsTitle = "Informations sur vos Cartes Graphiques (GPU/APU*)";
+            }
+            return GraphicsTitle;
+        } 
     }
 }
