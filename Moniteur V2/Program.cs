@@ -5,6 +5,7 @@ using System.IO;
 using System.Diagnostics;
 using Microsoft.Win32;
 using System.Text.RegularExpressions;
+using System.Net.NetworkInformation;
 
 namespace Moniteur_V2
 {
@@ -220,17 +221,19 @@ namespace Moniteur_V2
     }
     public class Disk
     {
-        public static int GetDiskCount()
+        public static List<string> GetDiskCount()
         {
             int count = 0;
-            ManagementObjectSearcher searcher = new ManagementObjectSearcher("SELECT * FROM Win32_LogicalDisk");
+            var diskList = new List<string>();
+            DriveInfo[] allDrives = DriveInfo.GetDrives();
 
-            foreach (ManagementObject drive in searcher.Get())
+            foreach (DriveInfo d in allDrives)
             {
                 count++;
+                diskList.Add(d.Name.ToString());
             }
 
-            return count;
+            return diskList;
         }
         public static float GetDiskCapacity()
         {
@@ -361,9 +364,20 @@ namespace Moniteur_V2
             infoStockage1.SpacingAfter = 5f;
             document.Add(infoStockage1);
 
-            Paragraph infoStockage2 = new Paragraph("- Nombre de disques (clef usb comprise) : " + Disk.GetDiskCount() + " Go", informationsFont);
+            Paragraph infoStockage2 = new Paragraph("- Nombre de disques (clef usb comprise) : " + Disk.GetDiskCount().Count(), informationsFont);
             infoStockage2.SpacingAfter = 5f;
             document.Add(infoStockage2);
+
+            foreach (string element in Disk.GetDiskCount())
+            {
+                Paragraph infoDiskStockage = new Paragraph("- " + element, informationsFont);
+                infoDiskStockage.SpacingAfter = 5f;
+                document.Add(infoDiskStockage);
+            }
+
+            Paragraph infoStockage3 = new Paragraph("- Capacité maximum de stockage (addition de capacité de chaque disque présent sur cette machine) : " + Disk.GetDiskCapacity() + " Go", informationsFont);
+            infoStockage3.SpacingAfter = 5f;
+            document.Add(infoStockage3);
 
             document.Close();
 

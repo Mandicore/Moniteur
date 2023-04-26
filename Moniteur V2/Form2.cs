@@ -16,12 +16,12 @@ namespace Moniteur_V2
             string RamGo = GetRamInfos.getRam() + " Go";
             RamI.Text = RamGo;
             string disk = "disque ";
-            if (Disk.GetDiskCount() > 1)
+            if (Disk.GetDiskCount().Count() > 1)
             {
                 disk = "disques ";
             }
             Type.Text = Informations.GetComputerType();
-            nbdisk.Text = "Nombre de " + disk + Disk.GetDiskCount() + " Disques";
+            nbdisk.Text = "Nombre de " + disk + Disk.GetDiskCount().Count() + " Disques";
             Totalstorage.Text = "Capacitée Max : " + Disk.GetDiskCapacity() + " Go";
             cpuCounter = new PerformanceCounter("Processor", "% Processor Time", "_Total");
             timerCpu.Interval = 600;
