@@ -46,7 +46,7 @@ namespace Moniteur_V2
                 GPU2T.Text = "Carte Graphique 2";
                 GPU3.Text = InformationsGpu.GetGpuName()[2];
                 GPU3T.Text = "Carte Graphique 3";
-                
+
             }
             Vram.Text = "Vram de la carte graphique principal : " + InformationsGpu.GetVram()[0];
         }
@@ -218,7 +218,10 @@ namespace Moniteur_V2
 
         private void button3_Click_1(object sender, EventArgs e)
         {
+            Page3 Form3 = new Page3();
+            Form3.Show();
             Pdf.CreateNewPdf();
+            Form3.Hide();
         }
 
         private void Type_Click(object sender, EventArgs e)

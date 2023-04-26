@@ -54,7 +54,6 @@ namespace Moniteur_V2
             //Infos Os
 
             OsInfos.Text = Os.GetOsInfos("os");
-            Arch.Text = "Architecture : " + Os.GetOsInfos("arch");
 
         }
 
@@ -148,6 +147,14 @@ namespace Moniteur_V2
         private void label4_Click_5(object sender, EventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Page3 Form3 = new Page3();
+            Form3.Show();
+            Pdf.CreateNewPdf();
+            Form3.Hide();
         }
     }
 }

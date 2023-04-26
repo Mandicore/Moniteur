@@ -62,8 +62,8 @@
             GPU3T = new Label();
             GPU3 = new Label();
             Vram = new Label();
-            button3 = new Button();
             Type = new Label();
+            button3 = new Button();
             SuspendLayout();
             // 
             // button1
@@ -376,16 +376,6 @@
             Vram.TabIndex = 33;
             Vram.Text = "label13";
             // 
-            // button3
-            // 
-            button3.Location = new Point(372, 459);
-            button3.Name = "button3";
-            button3.Size = new Size(75, 23);
-            button3.TabIndex = 34;
-            button3.Text = "button3";
-            button3.UseVisualStyleBackColor = true;
-            button3.Click += button3_Click_1;
-            // 
             // Type
             // 
             Type.BackColor = Color.FromArgb(128, 128, 255);
@@ -396,6 +386,18 @@
             Type.Size = new Size(351, 20);
             Type.TabIndex = 35;
             Type.Click += Type_Click;
+            // 
+            // button3
+            // 
+            button3.BackColor = Color.Transparent;
+            button3.Font = new Font("Calibri", 14.25F, FontStyle.Italic, GraphicsUnit.Point);
+            button3.Location = new Point(1184, 41);
+            button3.Name = "button3";
+            button3.Size = new Size(152, 37);
+            button3.TabIndex = 34;
+            button3.Text = "Générer le PDF";
+            button3.UseVisualStyleBackColor = false;
+            button3.Click += button3_Click_1;
             // 
             // Page2
             // 
@@ -480,7 +482,7 @@
         private Label GPU3T;
         private Label GPU3;
         private Label Vram;
-        private Button button3;
         private Label Type;
+        private Button button3;
     }
 }

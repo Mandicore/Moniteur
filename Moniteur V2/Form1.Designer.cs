@@ -47,7 +47,7 @@
             credit = new Label();
             label = new Label();
             OsInfos = new Label();
-            Arch = new Label();
+            button2 = new Button();
             SuspendLayout();
             // 
             // label1
@@ -90,7 +90,7 @@
             label3.BackColor = Color.DimGray;
             label3.Location = new Point(447, 143);
             label3.Name = "label3";
-            label3.Size = new Size(10, 323);
+            label3.Size = new Size(10, 283);
             label3.TabIndex = 3;
             // 
             // CPUName
@@ -140,9 +140,9 @@
             // 
             button1.BackColor = Color.Transparent;
             button1.Font = new Font("Calibri", 14.25F, FontStyle.Italic, GraphicsUnit.Point);
-            button1.Location = new Point(386, 469);
+            button1.Location = new Point(389, 447);
             button1.Name = "button1";
-            button1.Size = new Size(141, 33);
+            button1.Size = new Size(139, 33);
             button1.TabIndex = 8;
             button1.Text = "Voir plus d'infos";
             button1.UseVisualStyleBackColor = false;
@@ -213,9 +213,9 @@
             label.Font = new Font("Cambria", 14.25F, FontStyle.Bold, GraphicsUnit.Point);
             label.Location = new Point(463, 310);
             label.Name = "label";
-            label.Size = new Size(160, 22);
+            label.Size = new Size(149, 22);
             label.TabIndex = 17;
-            label.Text = "Informations Os :";
+            label.Text = "Version de l'OS :";
             // 
             // OsInfos
             // 
@@ -227,14 +227,16 @@
             OsInfos.Text = "label4";
             OsInfos.Click += label4_Click_5;
             // 
-            // Arch
+            // button2
             // 
-            Arch.Font = new Font("Verdana", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            Arch.Location = new Point(470, 421);
-            Arch.Name = "Arch";
-            Arch.Size = new Size(425, 23);
-            Arch.TabIndex = 19;
-            Arch.Text = "label4";
+            button2.Font = new Font("Calibri", 14.25F, FontStyle.Italic, GraphicsUnit.Point);
+            button2.Location = new Point(389, 485);
+            button2.Name = "button2";
+            button2.Size = new Size(139, 33);
+            button2.TabIndex = 20;
+            button2.Text = "Générer le PDF";
+            button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // Form1
             // 
@@ -242,7 +244,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.WhiteSmoke;
             ClientSize = new Size(914, 561);
-            Controls.Add(Arch);
+            Controls.Add(button2);
             Controls.Add(OsInfos);
             Controls.Add(label);
             Controls.Add(credit);
@@ -289,6 +291,6 @@
         private Label credit;
         private Label label;
         private Label OsInfos;
-        private Label Arch;
+        private Button button2;
     }
 }
