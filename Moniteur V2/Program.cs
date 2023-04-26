@@ -35,8 +35,7 @@ namespace Moniteur_V2
         }
         public static string AppName()
         {
-            string appName = "Moniteur d'activités";
-            return appName;
+            return "Moniteur d'activités";
         }
         public static string GetComputerType()
         {
@@ -268,10 +267,19 @@ namespace Moniteur_V2
             iTextSharp.text.Font secondTitleFont = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 14, iTextSharp.text.Font.BOLD, BaseColor.BLACK);
             iTextSharp.text.Font informationsFont = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 12, iTextSharp.text.Font.NORMAL, BaseColor.GRAY);
             iTextSharp.text.Font explainFont = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 10, iTextSharp.text.Font.NORMAL, BaseColor.GRAY);
+            iTextSharp.text.Font endFont = new iTextSharp.text.Font(iTextSharp.text.Font.FontFamily.HELVETICA, 10, iTextSharp.text.Font.ITALIC, BaseColor.BLACK);
 
-            //Add text
+
             PdfWriter writer = PdfWriter.GetInstance(document, new FileStream(pdfFilePath, FileMode.Create));
+            
             document.Open();
+
+            Paragraph start = new Paragraph("PDF généré automatique par l'application Moniteur créé par FIGUEIRAS Jossua en 2023", endFont);
+            start.Alignment = Element.ALIGN_RIGHT;
+            start.SpacingBefore = 0f;
+            start.SpacingAfter = 5f;
+            document.Add(start);
+
             Paragraph title = new Paragraph("Informations sur votre ordinateur", titleFont);
             title.Alignment = Element.ALIGN_CENTER;
             title.SpacingAfter = 50f;
@@ -378,6 +386,23 @@ namespace Moniteur_V2
             Paragraph infoStockage3 = new Paragraph("- Capacité maximum de stockage (addition de capacité de chaque disque présent sur cette machine) : " + Disk.GetDiskCapacity() + " Go", informationsFont);
             infoStockage3.SpacingAfter = 5f;
             document.Add(infoStockage3);
+
+            Paragraph SecondTitle5 = new Paragraph("Réseaux : ", secondTitleFont);
+            SecondTitle5.SpacingAfter = 10f;
+            document.Add(SecondTitle5);
+
+            foreach (NetworkInterface nic in NetworkInterface.GetAllNetworkInterfaces())
+            {
+
+                Paragraph infosreseau = new Paragraph("- " + nic.Name, informationsFont);
+                infosreseau.SpacingAfter = 5f;
+                document.Add(infosreseau);
+            }
+
+            Paragraph end = new Paragraph("PDF généré automatique par l'application Moniteur créé par FIGUEIRAS Jossua en 2023", endFont);
+            end.Alignment = Element.ALIGN_RIGHT;
+            end.SpacingBefore = 15f;
+            document.Add(end);
 
             document.Close();
 
