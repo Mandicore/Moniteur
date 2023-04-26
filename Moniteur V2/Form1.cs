@@ -99,8 +99,11 @@ namespace Moniteur_V2
 
         private void button1_Click(object sender, EventArgs e)
         {
+            chargement chargement = new chargement();
+            chargement.Show();
             Page2 Form2 = new Page2();
             Form2.Show();
+            chargement.Hide();
         }
 
 

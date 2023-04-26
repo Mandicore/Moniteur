@@ -12,7 +12,7 @@ namespace Moniteur_V2
             this.WindowState = FormWindowState.Maximized;
             this.FormBorderStyle = FormBorderStyle.Sizable;
             ComputerName.Text = Informations.ComputerName();
-            OsVersion.Text = Os.GetOsInfos("os") + " , " + Os.GetOsInfos("arch");
+            OsVersion.Text = Os.GetOsInfos("os") + ", " + Os.GetOsInfos("arch");
             string RamGo = GetRamInfos.getRam() + " Go";
             RamI.Text = RamGo;
             string disk = "disque ";
